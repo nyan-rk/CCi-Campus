@@ -26,16 +26,17 @@
         <div id="diagcont">
             <div class="row" id="diag">
             <?php
-                displayDiag($_GET['d'],$diag['newtask'],$diag['newstack'],$bdd);
+                displayDiag($_GET['d'],$diag['newtask'],$bdd);
             ?>
             <!--<div class='colo'><input type="text" class="newStack" placeholder="Nouvelle colonne..."></input></div>-->
             <div class='colo colnew' text1="<?php echo $diag['newtask']?>" text2="<?php echo $diag['newstack']?>"><svg id="newStackButton" width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>
             <?php //echo file_get_contents("./public/images/icons/plus - copie.svg"); 
-            addView($_GET['d'],$SESSION['id_user'], $bdd)?>;
+            addView($_GET['d'],$SESSION['id_user'], $bdd)?>
             </div>
         </div>
     </div>
 </body>
+<input type="hidden" id="dico" name="dico" text1="<?php echo $diag['newtask'] ?>" text2="<?php echo $diag['newstack']?>">
 <script src="./public/js/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="./public/js/diag.js"></script>
