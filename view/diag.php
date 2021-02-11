@@ -3,6 +3,7 @@
         $req=$bdd->prepare('SELECT * FROM diag WHERE id_diag= ?');
         $req->execute(array(htmlspecialchars($_GET['d'])));
         $resultat = $req->fetch();
+        $SESSION['id_user']=1;
     ?>
     <div class="container">
         <?php
@@ -29,7 +30,8 @@
             ?>
             <!--<div class='colo'><input type="text" class="newStack" placeholder="Nouvelle colonne..."></input></div>-->
             <div class='colo colnew' text1="<?php echo $diag['newtask']?>" text2="<?php echo $diag['newstack']?>"><svg id="newStackButton" width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>
-            <?php //echo file_get_contents("./public/images/icons/plus - copie.svg"); ?>
+            <?php //echo file_get_contents("./public/images/icons/plus - copie.svg"); 
+            addView($_GET['d'],$SESSION['id_user'], $bdd)?>;
             </div>
         </div>
     </div>
