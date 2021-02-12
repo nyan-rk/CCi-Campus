@@ -8,6 +8,8 @@
     <body>
 
         <h1>Page d'accueil</h1>
+        
+        <br>
 
         <a href="accueil.php">Accueil</a>
 
