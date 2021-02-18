@@ -1,18 +1,23 @@
 <?php
-    //Fonction d'initialisation de la page, prenant en compte le titre de la page.
+    // Building the page according to the page name
     function initPage()
     {
         include "./model/connexion_bdd.php";
-        //On inclut le bon fichier de dico.
+        // Including the right dictionaries.
         $_SESSION['lang']=(isset($_SESSION['lang'])? htmlspecialchars($_SESSION['lang']):'fr');
         $nomPage=basename($_SERVER['PHP_SELF'],'.php');
+        require "./view/lang/".$_SESSION['lang'].".php";
         require "./view/lang/".$nomPage."/".$_SESSION['lang'].".php";
         if (file_exists("./controller/".$nomPage."Controller.php")) require "./controller/".$nomPage."Controller.php";
-        //On génère la page avec $title comme variable globale de chaque fichier $title
+        //The page is generated with its $title as a Metatitle
         echo"<!DOCTYPE html><html lang=\"".$_SESSION['lang']."\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>".$title."</title>";
-        require "./view/header.php";
+        require "./view/head.html";
+        if (file_exists("./public/css/".$nomPage.".css")) echo "<link rel='stylesheet' href='./public/css/".$nomPage.".css'>";
+        if(in_array($nomPage,array("login","register"))) echo "</head>";
+            else require "./view/header.php";
         require "./view/".$nomPage.".php";
-        require "./view/footer.php";
+        if(in_array($nomPage,array("login","register"))) require "./view/footeralt.php";
+            else require "./view/footer.php";
     }
 
 ?>
