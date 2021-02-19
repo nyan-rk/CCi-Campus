@@ -1,0 +1,39 @@
+:root{
+    --sheet-color:#D7D4CD;
+    --cardlyblue1:#A8C6FA;
+    --cardlyblue1sub:#E4EDFE;
+    --cardlypurple:#C9BAE7;
+    --cardlypurplesub:#E8E3FF;
+    --cardlypink:#FFB4B0;
+    --cardlypinksub:#FFECE9;
+    --cardlypinkplus:#FFA382;
+    --cardlyyellow:#FFE3AE;
+    --cardlyyellowsub:#FDEED3;
+    --cardlygreen:#CBE8BA;
+    --cardlygreensub:#E2F4E2;
+}
+
+body{
+    overflow-X:hidden;
+	font-family: 'Open Sans', sans-serif!important;
+}
+
+#logo_cardly, #logo_footer{
+	--st0:#6e6e6d;
+	--st1:#8dc2ce;
+}
+
+
+/*Footer*/
+#logo_footer{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+}
+
+footer{
+    background-color:#ECECEC;
+    padding-bottom:50px;
+    padding-top:50px;
+}

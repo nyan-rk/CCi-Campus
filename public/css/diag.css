@@ -1,25 +1,3 @@
-:root{
-    --sheet-color:#D7D4CD;
-    --cardlyblue1:#5CB1FF;
-    --cardlyblue1sub:#D6EBFF;
-    --cardlyblue2:#6176F9;
-    --cardlyblue2sub:#D7DDFD;
-    --cardlypurple:#A48FFE;
-    --cardlypurplesub:#E8E3FF;
-    --cardlypink:#D877C3;
-    --cardlypinksub:#F5DDF0;
-    --cardlypinkplus:#FFA382;
-}
-
-body{
-    overflow-X:hidden;
-}
-
-#logo_cardly{
-	--st0:#6e6e6d;
-	--st1:#8dc2ce;
-}
-
 /* Diag : presentation section*/
 #avacanvas{
     display:flex;
@@ -42,11 +20,11 @@ button{
 #diag{
     flex-wrap:nowrap;
     overflow-X:scroll;
+    overflow-Y:hidden;
 	-webkit-overflow-scrolling: touch;
-    height: calc(100vh - 325px); 
-	bottom:0;
-    position: absolute;
+    min-height: calc(100vh - 325px);
     top:0;
+	bottom:0;
     left:0;
     right:0;
     bottom:0;
@@ -86,27 +64,27 @@ button{
 }
 
 .color2{
-    fill:var(--cardlyblue2);
+    fill:var(--cardlyyellow);
 }
 
 .color2 .stack-header{
-    background-color:var(--cardlyblue2);
+    background-color:var(--cardlyyellow);
 }
 
 .color2 .card{
-    background-color:var(--cardlyblue2sub);
+    background-color:var(--cardlyyellowsub);
 }
 
 .color3{
-    fill:var(--cardlypurple);
+    fill:var(--cardlygreen);
 }
 
 .color3 .stack-header{
-    background-color:var(--cardlypurple);
+    background-color:var(--cardlygreen);
 }
 
 .color3 .card{
-    background-color:var(--cardlypurplesub);
+    background-color:var(--cardlygreensub);
 }
 
 .color4{
@@ -175,10 +153,16 @@ button{
 .closeTask{
     position:absolute;
     visibility: hidden;
-    top:0;
+    color:white;
+    top:50px;
     right:20px;
     z-index:9999;
     cursor:pointer;
+}
+
+.task .closeTask{
+    color:black;
+    top:10px;
 }
 
 .newStack{

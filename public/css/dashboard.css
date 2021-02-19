@@ -1,0 +1,184 @@
+section ~ section, footer .container{
+    margin-top:50px;
+    padding-top:50px;
+    border-top: 2px solid #BBB7B7;
+}
+
+/*Dashboard - gums */
+.cardly-teamava{
+    background-color: #ECECEC;
+    border-radius:10px;
+    height:50px;
+    width:50px;
+    margin-right:20px;
+}
+
+.gum-car-cardly{
+    margin-top:50px;
+    width:200px;
+    height:300px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:column;
+    opacity:1;
+    text-align: center;
+}
+
+.gum-car-cardly.is-active{
+    margin-top:0!important;
+    height:400px!important;
+}
+
+.gum-cardly{
+    width:400px;
+    height:200px;
+    border-radius:10px;
+    display:flex;
+    flex-direction:row;
+    margin-right:20px;
+    margin-bottom:20px;
+}
+.gum-cardly1{
+    width:200px;
+    border-radius:10px;
+    border: 5px solid;
+    align-self: center;
+}
+
+.gum-cardly img{
+    width:200px;
+}
+
+.gum-car-cardly img{
+    max-width:190px;
+    max-height:152px;
+    align-self:center;
+}
+
+.gum-cardly2{
+    background-color:white;
+    width:200px;
+    border-radius:0 10px 10px 0;
+    border: 5px solid;
+    height: 100%;
+}
+.gum-car-cardly .gum-cardly2{
+    border-radius:0 0 10px 10px;
+}
+.gumcolor0{
+    background-color:#6e6e6d;
+}
+
+.gumcolor0 .gum-cardly1, .gumcolor0 .gum-cardly2{
+    border-color:#6e6e6d;
+}
+
+.gumcolor1{
+    background-color:var(--cardlypink);
+}
+
+.gumcolor1 .gum-cardly1, .gumcolor1 .gum-cardly2{
+    border-color:var(--cardlypink);
+}
+
+.gumcolor2{
+    background-color:var(--cardlyyellow);
+}
+
+.gumcolor2 .gum-cardly1, .gumcolor2 .gum-cardly2{
+    border-color:var(--cardlyyellow);
+}
+
+.gumcolor3{
+    background-color:var(--cardlyblue1);
+}
+
+.gumcolor3 .gum-cardly1, .gumcolor3 .gum-cardly2{
+    border-color:var(--cardlyblue1);
+}
+
+.gumcolor4{
+    background-color:var(--cardlygreen);
+}
+
+.gumcolor4 .gum-cardly1, .gumcolor4 .gum-cardly2{
+    border-color:var(--cardlygreen);
+}
+
+.gumcolor5{
+    background-color:var(--cardlypurple);
+}
+
+.gumcolor5 .gum-cardly1, .gumcolor5 .gum-cardly2{
+    border-color:var(--cardlypurple);
+}
+
+/* Dashboard : carroussel */
+.splide_slide{
+    width: 200px!important;
+}
+
+.splide__pagination li{
+    height:15px;
+    width:15px;
+    border: 1px black solid;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.splide__pagination li ~ li{
+    margin-left:10px;
+}
+
+.splide__pagination__page{
+    margin:0!important;
+    background : none;
+    opacity:1!important;
+}
+
+.splide__pagination__page.is-active{
+    transform:none;
+    background:black!important;
+}
+
+/*Dashboard : button part*/
+#whitesquare{
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    height:150px;
+    background-color:white;
+}
+
+.cardly-create{
+    margin-top:150px;
+    margin-bottom:50px;
+    border: 2px #CBD5DE solid!important;
+    border-radius:10px!important;
+    align-items: center;
+    padding-bottom:30px;
+}
+.cardly-create *:not(a){
+    margin-top:30px;
+}
+.cardly-create button{
+    background-color: black;
+    color:white;
+    border:0;
+    padding: 10px 50px 10px 50px!important;
+    border-radius:10px;
+}
+
+.card{
+    width: 18rem;margin-left:10px;border:0px;
+    border-radius: 0 0 10px 10px;
+}
+
+label {
+     width: 180px;
+     vertical-align: top;
+     margin-bottom: 1rem;
+   }
