@@ -20,3 +20,10 @@
         ));
         return $req;
     }
+
+    //Remove all affiliations with a team
+    function removeAllAffilFromTeam($idTeam,$db)
+    {
+        $req=$db->prepare('DELETE FROM team_affiliation WHERE id_team=:TEAM');
+        $req->execute(array('TEAM' => $idTeam));
+    }
