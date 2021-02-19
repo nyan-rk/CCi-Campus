@@ -38,8 +38,26 @@ $(document).ready(function(){
         $('#addMemberModal').val($(this).parent().next().attr('id').substring(5));
       });
     
+    // Add a member to a team
     $("#addMemberModal").on("click",function(){
-        console.log($('#addMemberModal').val());
+        team=$('#addMemberModal').val();
+        memberName=$('#membername').val();
+        if(memberName.length>0){
+            $.ajax({
+                url: './controller/dashboardInteract.php',
+                type: 'post',
+                data: {mode: 3, user:$('#membername').val(), team:team, name:memberName},
+                success: function(data){
+                    console.log('Member added');
+                },
+                error: function(data){
+                  console.log('Member not added');
+                }
+              });
+            $('#membername').val('');
+            $('#addMemberModal').val('');
+            $('#addMemberModal').modal('toggle');
+        }
     });
 
     // Create new project button
@@ -79,7 +97,7 @@ $(document).ready(function(){
                 type: 'post',
                 data: {mode: 2, user:realuser, name:teamName},
                 success: function(data){
-                    $('#teamTables').append("<div class='row' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
+                    $('#teamTables').append("<div class='row' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
                     $('#teamList').append("<option value='"+data+"'>"+$('#newteamname').val()+"</option>");
                     $('#newteamname').val('');
                     console.log('Team created');
