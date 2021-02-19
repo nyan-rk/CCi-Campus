@@ -33,6 +33,7 @@ $(document).ready(function(){
         }
     }
 
+    // Create new project button
     $("#newProjectCreate").on("click",function(){
         teamId=$('#teamList').val();
         teamSelect='#team-'+teamId;
@@ -57,6 +58,28 @@ $(document).ready(function(){
                 }
               });
             $('#newProjectModal').modal('toggle');
+        }
+    });
+
+    // Create new team button
+    $("#newTeamCreate").on("click",function(){
+        teamName=$('#newteamname').val();
+        if(teamName.length>0){
+            $.ajax({
+                url: './controller/dashboardInteract.php',
+                type: 'post',
+                data: {mode: 2, user:realuser, name:teamName},
+                success: function(data){
+                    $('#teamTables').append("<div class='row' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
+                    $('#teamList').append("<option value='"+data+"'>"+$('#newteamname').val()+"</option>");
+                    $('#newteamname').val('');
+                    console.log('Team created');
+                },
+                error: function(data){
+                  console.log('Team not created');
+                }
+              });
+            $('#newTeamModal').modal('toggle');
         }
     });
 })
