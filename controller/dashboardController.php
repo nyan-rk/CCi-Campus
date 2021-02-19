@@ -84,7 +84,8 @@
     }
 
     // Part with the two Create buttons
-    function showCreatePart($idUser,$createIntro,$createIntroSub,$newProject,$newTeam,$createButton,$db)
+    // All arguments beside $idUser and $db are dictionnary strings.
+    function showCreatePart($idUser,$createIntro,$createIntroSub,$newProject,$newTeam,$createButton,$dicoChooseTeam, $dicoNoTeam, $dicoProjectName, $dicoProjectDesc,$dicoModalButton,$dicoModalTeamName, $db)
     {
         echo "<div id='whitesquare'></div>
             <div class='col' style='text-align:center'>
@@ -104,29 +105,46 @@
 
                 <!-- Modals -->
                 <div class='modal fade' id='newProjectModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-                        <div class='modal-dialog modal-dialog-centered' role='document'>
-                            <div class='modal-content'>
-                                <div class='modal-header'>
-                                    <h5 class='modal-title'>".$newProject."</h5>
-                                </div>
-                                <div class='modal-body'>
-                                    <label for='teams'>Choisissez une équipe :</label>
-                                    <select id='teamList' name='teams'>
-                                        <option value='0'>Aucune (tableau personnel)</option>";
+                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h5 class='modal-title'>".$newProject."</h5>
+                            </div>
+                            <div class='modal-body'>
+                                <label for='teams'>".$dicoChooseTeam.":</label>
+                                <select id='teamList' name='teams'>
+                                    <option value='0'>".$dicoNoTeam."</option>";
         $myTeams=retrieveTeamsFromUser($idUser,$db);
         while($teams = $myTeams->fetch())
             echo "<option value='".$teams['id_team']."'>".$teams['name_team']."</option>";
-                                    echo "</select>
-                                    <label for='projectname'>Nom du projet :</label>
-                                    <input type='text' id='projectname' name='projectname'>
-                                    <label for='projectdesc'>Description du projet :</label>
-                                    <textarea id='projectdesc' name='projectdesc'></textarea>
-                                </div>
-                                <div class='modal-footer'>
-                                    <button type='button' id='newProjectCreate' class='btn btn-primary'>Créer</button>
-                                </div>
+                                echo "</select>
+                                <label for='projectname'>".$dicoProjectName."</label>
+                                <input type='text' id='projectname' name='projectname'>
+                                <label for='projectdesc'>".$dicoProjectDesc."</label>
+                                <textarea id='projectdesc' name='projectdesc'></textarea>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' id='newProjectCreate' class='btn btn-primary'>".$dicoModalButton."</button>
                             </div>
                         </div>
                     </div>
+                </div>
+
+                <div class='modal fade' id='newTeamModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h5 class='modal-title'>".$newTeam."</h5>
+                            </div>
+                            <div class='modal-body'>
+                                <label for='newteamname'>".$dicoModalTeamName."</label>
+                                <input type='text' id='newteamname' name='newteamname'>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' id='newTeamCreate' class='btn btn-primary'>".$dicoModalButton."</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>";
     }

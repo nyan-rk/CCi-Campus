@@ -1,7 +1,7 @@
 <body>
     <?php 
-        //$_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
-        //$_SESSION['is_connected']=(isset($_SESSION['is_connected'])?$_SESSION['is_connected']:true);
+        $_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
+        $_SESSION['is_connected']=(isset($_SESSION['is_connected'])?$_SESSION['is_connected']:true);
         if ((isset($_SESSION['id_user'])!=true)OR((isset($_SESSION['is_connected']))!=true))
 		{
 			header('Location: ../index.php');
@@ -36,11 +36,12 @@
         <!-- Create parts -->
         <section style="background-color:#ECECEC;position:relative">
             <?php 
-                showCreatePart($_SESSION['id_user'],$dash['createintro'],$dash['createintrosub'],$dash['newproject'],$dash['newteam'],$dash['createbutton'],$bdd);
+                showCreatePart($_SESSION['id_user'],$dash['createintro'],$dash['createintrosub'],$dash['newproject'],$dash['newteam'],$dash['createbutton'],$dash['modal1projectteam'],$dash['modal1noteam'],$dash['modal1projectname'],$dash['modal1projectdesc'],$dash['modalbutton'],$dash['modal2teamname'],$bdd);
             ?>
         </section>
     </div>
 </body>
+<input type="hidden" id="dico" name="dico" text1="<?php echo $dash['nopersonal'] ?>" text2="<?php echo $dash['noteam']?>" text3="<?php echo $dash['nothisteam'] ?>">
 <script>var user=<?php echo $_SESSION['id_user'];?>; </script>
 <script src="./public/js/jquery-3.5.1.js"></script>
 <!--<script src="./public/js/carousel.js"></script>-->

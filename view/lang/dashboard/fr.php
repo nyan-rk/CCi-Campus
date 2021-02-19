@@ -14,5 +14,11 @@ $dash=[
     'createintrosub' => 'Ici, tu peux créer un nouveau projet afin de démarrer une nouvelle aventure ou bien créer une nouvelle équipe afin de t\'organiser comme bon te semble avec d\'autres membres.',
     'newproject' => 'Crée un nouveau projet',
     'newteam' => 'Crée une nouvelle équipe',
-    'createbutton' => 'CRÉER'
+    'createbutton' => 'CRÉER',
+    'modal1projectteam' => 'Choisissez une équipe :',
+    'modal1noteam' => 'Aucune (tableau personnel)',
+    'modal1projectname' => 'Nom du projet :',
+    'modal1projectdesc' => 'Description du projet :',
+    'modal2teamname' => 'Nom de l\'équipe :',
+    'modalbutton' => 'Créer'
 ];
