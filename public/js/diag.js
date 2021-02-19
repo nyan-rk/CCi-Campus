@@ -107,7 +107,7 @@ $(document).ready(function(){
   $(".container").on("click","#diagTitle",function(){
     $(this).replaceWith("<input id='diagTitleEdit' value='"+$(this).text()+"'></input>");
     console.log(placeholderTask);
-    //screenshot();
+    screenshot();
 });
 
   $(".container").on("keypress","#diagTitleEdit",function(e){
@@ -132,7 +132,7 @@ $(document).ready(function(){
 //Desc edit
   $(".container").on("click","#descDiag",function(){
     $(this).replaceWith("<textarea id='descDiagEdit'>"+$(this).text().replace('<br/>',/\n/g)+"</textarea>");
-  //screenshot();
+  screenshot();
   });
 
   $(".container").on("keypress","#descDiagEdit",function(e){

@@ -68,7 +68,7 @@
         echo "<br>".$dicoNoTeam;
         else{
             while($teams = $myTeams->fetch()){
-                echo "<br><div class='row' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3></div>";
+                echo "<br><div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i></div>";
                 $teamDiags=retrieveDiagFromTeam($teams['id_team'],$db);
                 if ($teamDiags->rowCount()==null)
                     echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".$dicoNoThisTeam."</div>";
@@ -81,6 +81,27 @@
                 }
             }
         }
+    }
+
+    function teamModals($dicoAddMember,$dicoMemberName,$dicoAdd, $db)
+    {
+        echo 
+        "<div class='modal fade' id='addMemberModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>".$dicoAddMember."</h5>
+                    </div>
+                    <div class='modal-body'>
+                        <label for='membername'>".$dicoMemberName."</label>
+                        <input type='text' id='membername' name='membername'>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' id='addMemberButton' class='btn btn-primary'>".$dicoAdd."</button>
+                    </div>
+                </div>
+            </div>
+        </div>";
     }
 
     // Part with the two Create buttons

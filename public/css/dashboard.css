@@ -150,6 +150,17 @@ section ~ section, footer .container{
     background:black!important;
 }
 
+.fa-plus{
+    font-size: 33px;
+    margin:0 0 6px 6px;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.teamheader:hover .fa-plus{
+    visibility: visible;
+}
+
 /*Dashboard : button part*/
 #whitesquare{
     position:absolute;

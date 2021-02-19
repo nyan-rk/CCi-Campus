@@ -33,6 +33,15 @@ $(document).ready(function(){
         }
     }
 
+    $(".container").on("click",".fa-plus",function(){
+        $('#addMemberModal').modal('toggle');
+        $('#addMemberModal').val($(this).parent().next().attr('id').substring(5));
+      });
+    
+    $("#addMemberModal").on("click",function(){
+        console.log($('#addMemberModal').val());
+    });
+
     // Create new project button
     $("#newProjectCreate").on("click",function(){
         teamId=$('#teamList').val();

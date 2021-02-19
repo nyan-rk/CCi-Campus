@@ -30,6 +30,7 @@
         <section id="teamTables">
             <?php
                 showTeamDiag($_SESSION['id_user'],$dash['team'],$dash['teamsub'],$dash['noteam'],$dash['nothisteam'],$bdd,$gums);
+                teamModals($dash['addmember'],$dash['membername'],$dash['addbutton'], $bdd);
             ?>
         </section>
 
