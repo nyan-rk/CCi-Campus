@@ -4,7 +4,8 @@
     /* Interact modes :
     1 - Insert new project
     2 - Insert new team
-    3 - Insert new member to team*/
+    3 - Insert new member to team
+    4 - Delete team and managing team diags */
 
     // 1 - Insert new project
     if ($mode==1 and $_POST['user']!=null and $_POST['name']!=null and $_POST['desc']!=null and $_POST['team']!=null){
@@ -33,4 +34,18 @@
         else{
             exit();
         }
+    }
+
+    // 4 - Delete team and managing team diags
+    if ($mode==4 and $_POST['submode']!=null and $_POST['user']!=null and $_POST['team']!=null){
+        deleteTeam($_POST['team'],$bdd);
+        removeAllAffilFromTeam($_POST['team'],$bdd);
+        // Deleting all team diags
+        if($_POST['submode']==1){
+            deleteDiagFromTeam($_POST['team'],$bdd);
+        }
+        // Moving all team diags to the user who's doing the request
+        else if ($_POST['submode']==2){
+            updateAllDiagsToPersonal($_POST['user'],$_POST['team'],$bdd);
+        } 
     }

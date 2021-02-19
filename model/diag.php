@@ -32,7 +32,7 @@
 
     function updateAllDiagsToPersonal($idUser,$oldTeam,$db)
     {
-        $req=$db->prepare('UPDATE diag SET team_diag=:0 AND id_user=:USER WHERE id_team=:OLD;');
+        $req=$db->prepare('UPDATE diag SET team_affili=0 AND id_creator=:USER WHERE team_affili=:OLD;');
 		$req->execute(array(
 			'USER' => $idUser,
 			'OLD' => $oldTeam
@@ -64,7 +64,7 @@
 
     function deleteDiagFromTeam($idTeam,$db)
     {
-        $req=$db->prepare('DELETE FROM diag WHERE id_team=:TEAM');
+        $req=$db->prepare('DELETE FROM diag WHERE team_affili=:TEAM');
         $req->execute(array('TEAM' => $idTeam));
     }
 ?>
