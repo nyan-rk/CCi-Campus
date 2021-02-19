@@ -52,4 +52,10 @@
         $req->execute(array('TEAM' => $idTeam));
         return $req;
     }
+
+    function deleteDiagFromTeam($idTeam,$db)
+    {
+        $req=$db->prepare('DELETE FROM diag WHERE id_team=:TEAM');
+        $req->execute(array('TEAM' => $idTeam));
+    }
 ?>
