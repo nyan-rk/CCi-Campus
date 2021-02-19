@@ -33,6 +33,7 @@ $(document).ready(function(){
         }
     }
 
+    // Add a member to a team - plus sign
     $(".container").on("click",".fa-plus",function(){
         $('#addMemberModal').modal('toggle');
         $('#addMemberModal').val($(this).parent().next().attr('id').substring(5));
@@ -58,6 +59,44 @@ $(document).ready(function(){
             $('#addMemberModal').val('');
             $('#addMemberModal').modal('toggle');
         }
+    });
+
+    // Remove diags - cross sign
+    $(".container").on("click",".fa-times",function(){
+        $('#removeTeamModal').modal('toggle');
+        $('#removeTeamModal').val($(this).parent().next().attr('id').substring(5));
+      });
+
+    // Remove diags
+      $("#removeTeamButton").on("click",function(){
+        team=$('#removeTeamModal').val();
+        keep=$('input[name=removeChoice]:checked').val();
+        if(keep==1){
+            $('#team-'+team).prev().remove();
+            $('#team-'+team).remove();
+        }
+        if(keep==2){
+            $('#team-'+team).prev().remove();
+            $('#team-0').append($('#team-'+team).children());
+        }
+        gumRecolor();
+        $('#removeTeamModal').modal('toggle');
+        /*if(memberName.length>0){
+            $.ajax({
+                url: './controller/dashboardInteract.php',
+                type: 'post',
+                data: {mode: 4, submode:keep, team:team},
+                success: function(data){
+                    console.log('Member added');
+                },
+                error: function(data){
+                  console.log('Member not added');
+                }
+              });
+            $('#membername').val('');
+            $('#addMemberModal').val('');
+            $('#addMemberModal').modal('toggle');
+        }*/
     });
 
     // Create new project button

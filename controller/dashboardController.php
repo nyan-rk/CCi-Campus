@@ -68,7 +68,7 @@
         echo "<br>".$dicoNoTeam;
         else{
             while($teams = $myTeams->fetch()){
-                echo "<br><div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i></div>";
+                echo "<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i></div>";
                 $teamDiags=retrieveDiagFromTeam($teams['id_team'],$db);
                 if ($teamDiags->rowCount()==null)
                     echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".$dicoNoThisTeam."</div>";
@@ -98,6 +98,25 @@
                     </div>
                     <div class='modal-footer'>
                         <button type='button' id='addMemberButton' class='btn btn-primary'>".$dicoAdd."</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='modal fade' id='removeTeamModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>Supprimer l'équipe ?</h5>
+                    </div>
+                    <div class='modal-body'>
+                        Que faire des tableaux ?<br>
+                        <input type='radio' id='removeChoice1' name='removeChoice' value='1'>
+                        <label for='removeChoice1'>Supprimer les tableaux de l'équipe</label>
+                        <input type='radio' id='removeChoice2' name='removeChoice' value='2'>
+                        <label for='removeChoice1'>Mettre les tableaux de l'équipe dans mes tableaux personels</label>
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' id='removeTeamButton' class='btn btn-primary'>Supprimer</button>
                     </div>
                 </div>
             </div>

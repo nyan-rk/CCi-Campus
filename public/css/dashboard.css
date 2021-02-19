@@ -150,14 +150,14 @@ section ~ section, footer .container{
     background:black!important;
 }
 
-.fa-plus{
+.fa-plus, .fa-times{
     font-size: 33px;
     margin:0 0 6px 6px;
     visibility: hidden;
     cursor:pointer;
 }
 
-.teamheader:hover .fa-plus{
+.teamheader:hover .fa-plus, .teamheader:hover .fa-times{
     visibility: visible;
 }
 
