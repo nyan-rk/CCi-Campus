@@ -84,13 +84,14 @@ $(document).ready(function(){
                     $('#team-'+team).prev().remove();
                     $('#team-0').append($('#team-'+team).children());
                 }
+                $('#teamList option[value="'+team+'"]').remove();
+                gumRecolor();
                 console.log('Team removed');
                 },
                 error: function(data){
                 console.log('Team not removed');
             }
         });
-        gumRecolor();
         $('#removeTeamModal').modal('toggle');
     });
 
