@@ -6,6 +6,39 @@
         echo (file_exists('./upload/ava/'.$idCreator.'.jpg'))?"src='./upload/ava/".$idCreator.".jpg' >":"src='./upload/ava/0.jpg' >";
     }
 
+    // Show button
+    function menuButton()
+    {
+        echo 
+        "<div class='dropdown'>
+        <button class='btn dropdown-toggle' type='button' id='menubutton' data-bs-toggle='dropdown' aria-expanded='false'>Menu</button>
+            <ul class='dropdown-menu' aria-labelledby='menubutton'>
+                <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item' href='#'>".DIAG['menudelete']."</a></li>
+                <li><a id='menuchangeteam' class='dropdown-item' href='#'>".DIAG['menuchangeteam']."</a></li>
+                <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item' href='#'>".DIAG['menuchangecreator']."</a></li>
+            </ul>
+        </div>
+                
+        <div class='modal fade' id='ModalDiagDelete' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>Supprimer le tableau ?</h5>
+                    </div>
+                    <div class='modal-body'>
+                        Êtes-vous sûr(e) de vouloir supprimer le tableau ? Cette action est irréversible !
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' id='DeleteDiagYes' class='btn btn-primary'>Oui</button>
+                        <button type='button' id='DeleteDiagNo' class='btn btn-secondary'>Non</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+                
+                ";
+    }
+
     // Display diagram
     function displayDiag($idDiag,$db)
     {

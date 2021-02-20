@@ -108,7 +108,7 @@ $(document).ready(function(){
     $(this).replaceWith("<input id='diagTitleEdit' value='"+$(this).text()+"'></input>");
     console.log(placeholderTask);
     screenshot();
-});
+  });
 
   $(".container").on("keypress","#diagTitleEdit",function(e){
     console.log(e.which);
@@ -151,6 +151,37 @@ $(document).ready(function(){
       });
     screenshot();
     }
+  });
+
+  // Menu Modals
+  // Menu button - fixing Bootstrap's shit.
+  $("#menubutton").on("click",function(){
+    if($("#menubutton").hasClass("show")){
+        $("#menubutton").attr("aria-expanded",'false');
+        $("#menubutton").next().removeClass("show");
+        $("#menubutton").removeClass("show");
+    }
+    else{
+        $("#menubutton").attr("aria-expanded",'true');
+        $("#menubutton").addClass("show");
+        $("#menubutton").next().addClass("show");
+        $("#menubutton").next().attr("data-popper-placement",'bottom-end');
+        $("#menubutton").next().attr("style",'margin: 0px; position: absolute; inset: 0px auto auto 0px; transform: translate(-225px, 40px);');
+    }
+});
+  $(document).on("click", function(event){
+    if(!$(event.target).closest("#menubutton").length){
+      $("#menubutton").attr("aria-expanded",'false');
+      $("#menubutton").next().removeClass("show");
+      $("#menubutton").removeClass("show");
+    }
+  });
+
+  // Menu - Delete : Yes
+  $(".container").on("click","#DeleteDiagYes",function(){
+    //$('#ModalDiagDelete').modal('toggle');
+    window.location.href = 'dashboard.php';
+    //console.log('Ta mere');
   });
 
 

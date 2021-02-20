@@ -37,9 +37,10 @@ button{
     margin-top:20px;
 }
 
-/*.stack-header, .card{
-    background-color:var(--sheet-color);
-}*/
+#menubutton{
+    border-color:black;
+}
+
 .card{
     width: 18rem;margin-left:10px;border:0px;
     border-radius: 0 0 10px 10px;
