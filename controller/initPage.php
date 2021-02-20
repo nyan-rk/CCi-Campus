@@ -5,6 +5,7 @@
         include "./model/connexion_bdd.php";
         // Including the right dictionaries.
         $_SESSION['lang']=(isset($_SESSION['lang'])? htmlspecialchars($_SESSION['lang']):'fr');
+        //$_SESSION['lang']='fr';
         $nomPage=basename($_SERVER['PHP_SELF'],'.php');
         require "./view/lang/".$_SESSION['lang'].".php";
         require "./view/lang/".$nomPage."/".$_SESSION['lang'].".php";

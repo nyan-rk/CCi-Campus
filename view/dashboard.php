@@ -12,7 +12,7 @@
         <!-- Carroussel of last 3 tables seen -->
         <section>
             <div class="col" style="text-align:center">
-                <?php echo "<h2>".$dash['intro1']."</h2>".$dash['intro2'] ?>
+                <?php echo "<h2>".DASH['intro1']."</h2>".DASH['intro2'] ?>
             </div>
             <?php  
                 showCaroussel($_SESSION['id_user'],$bdd);
@@ -22,27 +22,27 @@
         <!-- Personal tables -->
         <section id="personalTables">
             <?php  
-                showPersonalDiag($_SESSION['id_user'],$dash['personal'],$dash['personalsub'],$dash['nopersonal'],$bdd,$gums);
+                showPersonalDiag($_SESSION['id_user'],$bdd,$gums);
             ?>
         </section>
 
         <!-- Team tables -->
         <section id="teamTables">
             <?php
-                showTeamDiag($_SESSION['id_user'],$dash['team'],$dash['teamsub'],$dash['noteam'],$dash['nothisteam'],$bdd,$gums);
-                teamModals($dash['addmember'],$dash['membername'],$dash['addbutton'], $bdd);
+                showTeamDiag($_SESSION['id_user'],$bdd,$gums);
+                teamModals($bdd);
             ?>
         </section>
 
         <!-- Create parts -->
         <section style="background-color:#ECECEC;position:relative">
             <?php 
-                showCreatePart($_SESSION['id_user'],$dash['createintro'],$dash['createintrosub'],$dash['newproject'],$dash['newteam'],$dash['createbutton'],$dash['modal1projectteam'],$dash['modal1noteam'],$dash['modal1projectname'],$dash['modal1projectdesc'],$dash['modalbutton'],$dash['modal2teamname'],$bdd);
+                showCreatePart($_SESSION['id_user'],$bdd);
             ?>
         </section>
     </div>
 </body>
-<input type="hidden" id="dico" name="dico" text1="<?php echo $dash['nopersonal'] ?>" text2="<?php echo $dash['noteam']?>" text3="<?php echo $dash['nothisteam'] ?>">
+<input type="hidden" id="dico" name="dico" text1="<?php echo DASH['nopersonal'] ?>" text2="<?php echo DASH['noteam']?>" text3="<?php echo DASH['nothisteam'] ?>">
 <script>var user=<?php echo $_SESSION['id_user'];?>; </script>
 <script src="./public/js/jquery-3.5.1.js"></script>
 <!--<script src="./public/js/carousel.js"></script>-->

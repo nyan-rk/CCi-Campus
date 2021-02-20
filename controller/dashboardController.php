@@ -41,12 +41,12 @@
     }
 
     // Display of personal diags
-    function showPersonalDiag($idUser,$dicoPers,$dicoPersSub,$dicoNoPers,$db,&$gums)
+    function showPersonalDiag($idUser,$db,&$gums)
     {
-        echo "<div class='col' style='text-align:center'><h2>".$dicoPers."</h2>".$dicoPersSub;
+        echo "<div class='col' style='text-align:center'><h2>".DASH['personal']."</h2>".DASH['personalsub'];
         $personal=retrievePersonalDiags($idUser, $db);
         if ($personal->rowCount()==null)
-        echo "<div class='row' id='team-0' style='margin-top:20px'>".$dicoNoPers."</div>";
+        echo "<div class='row' id='team-0' style='margin-top:20px'>".DASH['nopersonal']."</div>";
         else{
             echo "<div class='row' id='team-0' style='margin-top:20px'>";
             while($tabs = $personal->fetch()){
@@ -60,18 +60,18 @@
 
     // Display of team diags
 
-    function showTeamDiag($idUser,$dicoTeam,$dicoTeamSub,$dicoNoTeam,$dicoNoThisTeam,$db,&$gums)
+    function showTeamDiag($idUser,$db,&$gums)
     {
-        echo "<div class='col' style='text-align:center'><h2>".$dicoTeam."</h2>".$dicoTeamSub."</div>";
+        echo "<div class='col' style='text-align:center'><h2>".DASH['team']."</h2>".DASH['teamsub']."</div>";
         $myTeams=retrieveTeamsFromUser($idUser,$db);
         if ($myTeams->rowCount()==null)
-        echo "<br>".$dicoNoTeam;
+        echo "<br>".DASH['noteam'];
         else{
             while($teams = $myTeams->fetch()){
                 echo "<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i></div>";
                 $teamDiags=retrieveDiagFromTeam($teams['id_team'],$db);
                 if ($teamDiags->rowCount()==null)
-                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".$dicoNoThisTeam."</div>";
+                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".DASH['nothisteam']."</div>";
                 else{
                     echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>";
                     while($tabs = $teamDiags->fetch()){
@@ -83,21 +83,21 @@
         }
     }
 
-    function teamModals($dicoAddMember,$dicoMemberName,$dicoAdd, $db)
+    function teamModals($db)
     {
         echo 
         "<div class='modal fade' id='addMemberModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
                     <div class='modal-header'>
-                        <h5 class='modal-title'>".$dicoAddMember."</h5>
+                        <h5 class='modal-title'>".DASH['membername']."</h5>
                     </div>
                     <div class='modal-body'>
-                        <label for='membername'>".$dicoMemberName."</label>
+                        <label for='membername'>".DASH['addmember']."</label>
                         <input type='text' id='membername' name='membername'>
                     </div>
                     <div class='modal-footer'>
-                        <button type='button' id='addMemberButton' class='btn btn-primary'>".$dicoAdd."</button>
+                        <button type='button' id='addMemberButton' class='btn btn-primary'>".DASH['addbutton']."</button>
                     </div>
                 </div>
             </div>
@@ -125,22 +125,22 @@
 
     // Part with the two Create buttons
     // All arguments beside $idUser and $db are dictionnary strings.
-    function showCreatePart($idUser,$createIntro,$createIntroSub,$newProject,$newTeam,$createButton,$dicoChooseTeam, $dicoNoTeam, $dicoProjectName, $dicoProjectDesc,$dicoModalButton,$dicoModalTeamName, $db)
+    function showCreatePart($idUser, $db)
     {
         echo "<div id='whitesquare'></div>
             <div class='col' style='text-align:center'>
-                <h2>".$createIntro."</h2>".$createIntroSub."
+                <h2>".DASH['createintro']."</h2>".DASH['createintrosub']."
             </div>
             <div class='row' style='justify-content: space-evenly;'>
                 <div class='card cardly-create'>
-                <strong>".$newProject."</strong>
+                <strong>".DASH['newproject']."</strong>
                     <svg width='75px' height='62px'><use href='./public/images/dashboard/newteam.svg#newteam'></use></svg>
-                    <a data-toggle='modal' data-target='#newProjectModal'><button id='newProject'>".$createButton."</button></a>
+                    <a data-toggle='modal' data-target='#newProjectModal'><button id='newProject'>".DASH['createbutton']."</button></a>
                 </div>
                 <div class='card cardly-create'>
-                <strong>".$newTeam."</strong>
+                <strong>".DASH['newteam']."</strong>
                     <svg width='63px' height='62px'><use href='./public/images/dashboard/newproject.svg#newproject'></use></svg>
-                    <a data-toggle='modal' data-target='#newTeamModal'><button id='newTeam'>".$createButton."</button></a>
+                    <a data-toggle='modal' data-target='#newTeamModal'><button id='newTeam'>".DASH['createbutton']."</button></a>
                 </div>
 
                 <!-- Modals -->
@@ -148,23 +148,23 @@
                     <div class='modal-dialog modal-dialog-centered' role='document'>
                         <div class='modal-content'>
                             <div class='modal-header'>
-                                <h5 class='modal-title'>".$newProject."</h5>
+                                <h5 class='modal-title'>".DASH['newproject']."</h5>
                             </div>
                             <div class='modal-body'>
-                                <label for='teams'>".$dicoChooseTeam.":</label>
+                                <label for='teams'>".DASH['modal1projectteam']."</label>
                                 <select id='teamList' name='teams'>
-                                    <option value='0'>".$dicoNoTeam."</option>";
+                                    <option value='0'>".DASH['modal1noteam']."</option>";
         $myTeams=retrieveTeamsFromUser($idUser,$db);
         while($teams = $myTeams->fetch())
             echo "<option value='".$teams['id_team']."'>".$teams['name_team']."</option>";
                                 echo "</select>
-                                <label for='projectname'>".$dicoProjectName."</label>
+                                <label for='projectname'>".DASH['modal1projectname']."</label>
                                 <input type='text' id='projectname' name='projectname'>
-                                <label for='projectdesc'>".$dicoProjectDesc."</label>
+                                <label for='projectdesc'>".DASH['modal1projectdesc']."</label>
                                 <textarea id='projectdesc' name='projectdesc'></textarea>
                             </div>
                             <div class='modal-footer'>
-                                <button type='button' id='newProjectCreate' class='btn btn-primary'>".$dicoModalButton."</button>
+                                <button type='button' id='newProjectCreate' class='btn btn-primary'>".DASH['modalbutton']."</button>
                             </div>
                         </div>
                     </div>
@@ -174,14 +174,14 @@
                     <div class='modal-dialog modal-dialog-centered' role='document'>
                         <div class='modal-content'>
                             <div class='modal-header'>
-                                <h5 class='modal-title'>".$newTeam."</h5>
+                                <h5 class='modal-title'>".DASH['newteam']."</h5>
                             </div>
                             <div class='modal-body'>
-                                <label for='newteamname'>".$dicoModalTeamName."</label>
+                                <label for='newteamname'>".DASH['modal2teamname']."</label>
                                 <input type='text' id='newteamname' name='newteamname'>
                             </div>
                             <div class='modal-footer'>
-                                <button type='button' id='newTeamCreate' class='btn btn-primary'>".$dicoModalButton."</button>
+                                <button type='button' id='newTeamCreate' class='btn btn-primary'>".DASH['modalbutton']."</button>
                             </div>
                         </div>
                     </div>

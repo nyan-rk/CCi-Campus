@@ -1,6 +1,6 @@
 <?php
 $title='Cardly - Dashboard';
-$dash=[
+define("DASH", [
     'intro1'=>"Sur quel projet travailler ?",
     'intro2' => "Voici une sélection de tes derniers projets",
     'personal'=>'Tes tableaux personnels',
@@ -24,4 +24,4 @@ $dash=[
     'modal1projectdesc' => 'Description du projet :',
     'modal2teamname' => 'Nom de l\'équipe :',
     'modalbutton' => 'Créer'
-];
+]);

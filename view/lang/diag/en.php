@@ -1,7 +1,7 @@
 <?php
 $title='';
-$diag=[
+define("DIAG", [
     'objectives'=>'Project\'s objective(s)',
     'newtask'=>'New task',
     'newstack' => 'New stack'
-];
+]);
