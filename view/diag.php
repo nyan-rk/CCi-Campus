@@ -20,7 +20,16 @@
                 ?>
             </div>
             <div class="col-6 col-md-3 order-2 order-md-3">
-                <button>Bouton</button>
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                       Menu
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li><a class="dropdown-item" href="#">Supprimer le tableau</a></li>
+                        <li><a class="dropdown-item" href="#">Changer l'équipe en charge</a></li>
+                        <li><a class="dropdown-item" href="#">Modifier le propriétaire du tableau</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div id="diagcont">

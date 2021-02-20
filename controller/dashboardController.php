@@ -124,7 +124,6 @@
     }
 
     // Part with the two Create buttons
-    // All arguments beside $idUser and $db are dictionnary strings.
     function showCreatePart($idUser, $db)
     {
         echo "<div id='whitesquare'></div>

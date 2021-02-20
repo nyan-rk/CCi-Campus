@@ -1,3 +1,5 @@
+h2,p { display: inline; padding:0;margin:0} 
+
 /* Diag : presentation section*/
 #avacanvas{
     display:flex;
