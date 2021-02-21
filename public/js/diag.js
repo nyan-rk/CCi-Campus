@@ -241,7 +241,6 @@ $(".container").on("click","#ChangeTeamNo",function(){
         console.log('Access denied');
       }
     });
-    //console.log('Ta mere');
   });
 
   // Menu - Change admin : No

@@ -22,4 +22,9 @@
             updateDiagTeam($_POST['diag'],$_POST['team'],$bdd);
             exit();
         }
+
+        if ($mode==11 and $_POST['diag']!=null AND $_POST['newuser']!=NULL){
+            updateDiagCreator($_POST['diag'],$_POST['newuser'],$bdd);
+            exit();
+        }
     }
