@@ -67,4 +67,10 @@
         $req=$db->prepare('DELETE FROM diag WHERE team_affili=:TEAM');
         $req->execute(array('TEAM' => $idTeam));
     }
+
+    function deleteDiagFromId($idUser,$db)
+    {
+        $req=$db->prepare('DELETE FROM diag WHERE id_creator=:USER');
+        $req->execute(array('USER' => $idUser));
+    }
 ?>
