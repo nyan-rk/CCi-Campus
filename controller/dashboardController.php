@@ -161,6 +161,12 @@
                                 <input type='text' id='projectname' name='projectname'>
                                 <label for='projectdesc'>".DASH['modal1projectdesc']."</label>
                                 <textarea id='projectdesc' name='projectdesc'></textarea>
+                                <label for='visibility'>".DASH['modal1visib']."</label>
+                                <select id='projectVisib' name='visibility'>
+                                    <option value='0'>".DASH['modal1visib0']."</option>
+                                    <option value='1'>".DASH['modal1visib1']."</option>
+                                    <option value='2'>".DASH['modal1visib2']."</option>
+                                </select>
                             </div>
                             <div class='modal-footer'>
                                 <button type='button' id='newProjectCreate' class='btn btn-primary'>".DASH['modalbutton']."</button>

@@ -22,6 +22,10 @@ define("DASH", [
     'modal1noteam' => 'Aucune (tableau personnel)',
     'modal1projectname' => 'Nom du projet :',
     'modal1projectdesc' => 'Description du projet :',
+    'modal1visib' => 'Visibilité',
+    'modal1visib0' => 'Public',
+    'modal1visib1' => 'Utilisateurs connectés',
+    'modal1visib2' => 'Équipe',
     'modal2teamname' => 'Nom de l\'équipe :',
     'modalbutton' => 'Créer'
 ]);

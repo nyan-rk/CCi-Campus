@@ -106,7 +106,7 @@ $(document).ready(function(){
             $.ajax({
                 url: './controller/dashboardInteract.php',
                 type: 'post',
-                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(), team:teamId},
+                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(),visi:$('#projectVisib').val(), team:teamId},
                 success: function(data){
                     console.log("Tableau créé : "+data)
                     if($(teamSelect).find('.gum-cardly').length==0){
