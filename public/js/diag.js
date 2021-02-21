@@ -215,7 +215,7 @@ $(document).ready(function(){
       success: function(data){
         $('#teamInCharge').text($( "#teamList option:selected" ).text());
         $('#ModalTeamChange').modal('toggle');
-        window.location.href=window.location.href;
+        location.reload();
       },
       error: function(data){
         console.log('Access denied');
@@ -225,9 +225,9 @@ $(document).ready(function(){
   });
 
 // Menu - Change team : No
-$(".container").on("click","#ChangeTeamNo",function(){
-  $('#ModalTeamChange').modal('toggle');
-});
+  $(".container").on("click","#ChangeTeamNo",function(){
+    $('#ModalTeamChange').modal('toggle');
+  });
 
   // Menu - Change admin : Yes
   $(".container").on("click","#ChangeAdminYes",function(){
@@ -248,6 +248,30 @@ $(".container").on("click","#ChangeTeamNo",function(){
   $(".container").on("click","#ChangeAdminNo",function(){
     $('#MenuChangeCreator').modal('toggle');
   });
+
+  // Menu - Change visib : Yes
+  $(".container").on("click","#ChangeVisibYes",function(){
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 12, user:realuser, diag:idDiag, visi:$( "#visibList option:selected" ).val()},
+      success: function(data){
+        $('#currentVis').text($( "#visibList option:selected" ).text());
+        $('#ModalVisibChange').modal('toggle');
+        location.reload();
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+    //console.log('Ta mere');
+  });
+
+// Menu - Change visib : No
+  $(".container").on("click","#ChangeVisibNo",function(){
+    $('#ModalVisibChange').modal('toggle');
+  });
+  
 
   // Diag manipulation
   // Task and stack closure

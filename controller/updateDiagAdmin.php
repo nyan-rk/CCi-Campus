@@ -5,8 +5,9 @@
 
     /*Update modes :
     9 : Delete diag
-    10 : Change diag team NOT DONE
-    11 : Change diag creator/owner NOT DONE
+    10 : Change diag team
+    11 : Change diag creator/owner
+    12 : Change diag visibility
     */
     
     // Future verification of access
@@ -18,13 +19,21 @@
             exit();
         }
 
+        // 10 : Change diag team
         if ($mode==10 and $_POST['diag']!=null AND $_POST['team']!=NULL){
             updateDiagTeam($_POST['diag'],$_POST['team'],$bdd);
             exit();
         }
 
+        // 11 : Change diag creator/owner
         if ($mode==11 and $_POST['diag']!=null AND $_POST['newuser']!=NULL){
             updateDiagCreator($_POST['diag'],$_POST['newuser'],$bdd);
+            exit();
+        }
+
+        // 12 : Change diag visibility
+        if ($mode==12 and $_POST['diag']!=null AND $_POST['visi']!=NULL){
+            updateDiagVisib($_POST['diag'], $_POST['visi'],$bdd);
             exit();
         }
     }
