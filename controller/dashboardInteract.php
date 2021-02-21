@@ -32,7 +32,6 @@
             exit();
         }
         else{
-            exit();
         }
     }
 
@@ -48,4 +47,15 @@
         else if ($_POST['submode']==2){
             updateAllDiagsToPersonal($_POST['user'],$_POST['team'],$bdd);
         } 
+    }
+
+    // 5 - Exit team
+    if ($mode==5 and $_POST['user']!=null and $_POST['team']!=null){
+        $ifAlone=teamMembers(1,$bdd);
+        // Deleting all team diags if only 1
+        if($ifAlone->rowCount()==1){
+            deleteDiagFromTeam($_POST['team'],$bdd);
+            deleteTeam($_POST['team'],$bdd);
+        }
+        removeUserFromTeam($_POST['user'],$_POST['team'],$bdd);
     }

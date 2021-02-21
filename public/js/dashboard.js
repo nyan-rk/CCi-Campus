@@ -104,22 +104,21 @@ $(document).ready(function(){
     // Quit team - yes
       $("#exitTeamYes").on("click",function(){
         team=$('#exitTeamModal').val();
-        /*$.ajax({
+        $.ajax({
             url: './controller/dashboardInteract.php',
             type: 'post',
-            data: {mode: 4, user:realuser, submode:keep, team:team},
+            data: {mode: 5, user:realuser, team:team},
             success: function(data){            
-                
                 $('#team-'+team).prev().remove();
                 $('#team-'+team).remove();
                 $('#teamList option[value="'+team+'"]').remove();
                 gumRecolor();
-                console.log('Team removed');
+                console.log('Exited from team');
                 },
                 error: function(data){
-                console.log('Team not removed');
+                console.log('Not exited from team');
             }
-        });*/
+        });
         $('#exitTeamModal').modal('toggle');
     });
 
