@@ -68,7 +68,7 @@
         echo "<br>".DASH['noteam'];
         else{
             while($teams = $myTeams->fetch()){
-                echo "<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i></div>";
+                echo "<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div>";
                 $teamDiags=retrieveDiagFromTeam($teams['id_team'],$db);
                 if ($teamDiags->rowCount()==null)
                     echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".DASH['nothisteam']."</div>";
@@ -117,6 +117,23 @@
                     </div>
                     <div class='modal-footer'>
                         <button type='button' id='removeTeamButton' class='btn btn-primary'>Supprimer</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class='modal fade' id='exitTeamModal' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+            <div class='modal-dialog modal-dialog-centered' role='document'>
+                <div class='modal-content'>
+                    <div class='modal-header'>
+                        <h5 class='modal-title'>Quitter l'équipe ?</h5>
+                    </div>
+                    <div class='modal-body'>
+                        Souhaitez-vous RÉELLEMENT quitter cette équipe ?
+                    </div>
+                    <div class='modal-footer'>
+                        <button type='button' id='exitTeamYes' class='btn btn-primary'>Oui</button>
+                        <button type='button' id='exitTeamNo' class='btn btn-primary'>Non</button>
                     </div>
                 </div>
             </div>

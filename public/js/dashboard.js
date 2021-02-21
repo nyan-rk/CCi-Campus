@@ -95,6 +95,34 @@ $(document).ready(function(){
         $('#removeTeamModal').modal('toggle');
     });
 
+    // Quit team - exit sign
+    $(".container").on("click",".fa-sign-out-alt",function(){
+        $('#exitTeamModal').modal('toggle');
+        $('#exitTeamModal').val($(this).parent().next().attr('id').substring(5));
+      });
+
+    // Remove diags
+      $("#exitTeamYes").on("click",function(){
+        team=$('#exitTeamModal').val();
+        /*$.ajax({
+            url: './controller/dashboardInteract.php',
+            type: 'post',
+            data: {mode: 4, user:realuser, submode:keep, team:team},
+            success: function(data){            
+                
+                $('#team-'+team).prev().remove();
+                $('#team-'+team).remove();
+                $('#teamList option[value="'+team+'"]').remove();
+                gumRecolor();
+                console.log('Team removed');
+                },
+                error: function(data){
+                console.log('Team not removed');
+            }
+        });*/
+        $('#exitTeamModal').modal('toggle');
+    });
+
     // Create new project button
     $("#newProjectCreate").on("click",function(){
         teamId=$('#teamList').val();
@@ -133,7 +161,7 @@ $(document).ready(function(){
                 type: 'post',
                 data: {mode: 2, user:realuser, name:teamName},
                 success: function(data){
-                    $('#teamTables').append("<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
+                    $('#teamTables').append("<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
                     $('#teamList').append("<option value='"+data+"'>"+$('#newteamname').val()+"</option>");
                     $('#newteamname').val('');
                     console.log('Team created');
