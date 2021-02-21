@@ -19,7 +19,8 @@ function screenshot(){
 }
 
 $(document).ready(function(){
-  console.log($("#dico").attr("text1"));
+
+  var realuser=user;
   //Recolor all stacks function
   function stackRecolor(){
     $('.row .colo').each(function () {
@@ -180,10 +181,24 @@ $(document).ready(function(){
   // Menu - Delete : Yes
   $(".container").on("click","#DeleteDiagYes",function(){
     //$('#ModalDiagDelete').modal('toggle');
-    window.location.href = 'dashboard.php';
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 9, user:realuser, diag:idDiag},
+      success: function(data){
+        window.location.href = 'dashboard.php';
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
     //console.log('Ta mere');
   });
 
+  // Menu - Delete : No
+  $(".container").on("click","#DeleteDiagNo",function(){
+    $('#ModalDiagDelete').modal('toggle');
+  });
 
   // Task and stack closure
   $(".row").on("click",".closeTask",function(){
@@ -215,12 +230,12 @@ $(document).ready(function(){
           console.log("Stack "+$stack+" removed");
           stackRecolor();
         }
+        screenshot();
       },
       error: function(data){
-        console.log('Desc unchanged');
+        console.log('Nothing changed');
       }
     });
-    screenshot();
   });
 
     $(".row").on("keypress",".newTask",function(e){

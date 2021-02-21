@@ -70,7 +70,7 @@
 
     function deleteDiagFromId($idUser,$db)
     {
-        $req=$db->prepare('DELETE FROM diag WHERE id_creator=:USER');
+        $req=$db->prepare('DELETE FROM diag WHERE id_diag=:USER');
         $req->execute(array('USER' => $idUser));
     }
 ?>

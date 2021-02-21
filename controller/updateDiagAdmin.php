@@ -9,8 +9,12 @@
     11 : Change diag creator/owner NOT DONE
     */
     
-    // 1 : Title update
-    if ($mode==1 and $_POST['title']!=null){
-        updateDiagName($_POST['diag'],htmlspecialchars($_POST['title']),$bdd);
-        exit();
+    // Future verification of access
+    {
+
+        // 9 : Delete diag
+        if ($mode==9 and $_POST['diag']!=null){
+            deleteDiagFromId($_POST['diag'],$bdd);
+            exit();
+        }
     }
