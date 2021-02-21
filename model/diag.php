@@ -49,6 +49,15 @@
 		));
     }
 
+    function updateDiagVisib($idDiag, $newVis,$db)
+    {
+        $req=$db->prepare('UPDATE diag SET vis_diag=:VISI WHERE id_diag=:DIAG;');
+		$req->execute(array(
+			'VISI' => $newVis,
+			'DIAG' => $idDiag
+		));
+    }
+
     function updateAllDiagsToPersonal($idUser,$oldTeam,$db)
     {
         $req=$db->prepare('UPDATE diag SET team_affili=0 AND id_creator=:USER WHERE team_affili=:OLD;');
