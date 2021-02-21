@@ -7,36 +7,65 @@
     }
 
     // Show button
-    function menuButton()
+    function menuButton($idCreator, $idUser,$idTeam,$db)
     {
-        echo 
-        "<div class='dropdown'>
-        <button class='btn dropdown-toggle' type='button' id='menubutton' data-bs-toggle='dropdown' aria-expanded='false'>Menu</button>
-            <ul class='dropdown-menu' aria-labelledby='menubutton'>
-                <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item' href='#'>".DIAG['menudelete']."</a></li>
-                <li><a id='menuchangeteam' class='dropdown-item' href='#'>".DIAG['menuchangeteam']."</a></li>
-                <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item' href='#'>".DIAG['menuchangecreator']."</a></li>
-            </ul>
-        </div>
-                
-        <div class='modal fade' id='ModalDiagDelete' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
-            <div class='modal-dialog modal-dialog-centered' role='document'>
-                <div class='modal-content'>
-                    <div class='modal-header'>
-                        <h5 class='modal-title'>Supprimer le tableau ?</h5>
-                    </div>
-                    <div class='modal-body'>
-                        Êtes-vous sûr(e) de vouloir supprimer le tableau ? Cette action est irréversible !
-                    </div>
-                    <div class='modal-footer'>
-                        <button type='button' id='DeleteDiagYes' class='btn btn-primary'>Oui</button>
-                        <button type='button' id='DeleteDiagNo' class='btn btn-secondary'>Non</button>
+        if ($idCreator==$idUser){
+            echo 
+            "<div class='dropdown'>
+            <button class='btn dropdown-toggle' type='button' id='menubutton' data-bs-toggle='dropdown' aria-expanded='false'>Menu</button>
+                <ul class='dropdown-menu' aria-labelledby='menubutton'>
+                    <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item' href='#'>".DIAG['menudelete']."</a></li>
+                    <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item' href='#'>".DIAG['menuchangeteam']."</a></li>
+                    <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item' href='#'>".DIAG['menuchangecreator']."</a></li>
+                </ul>
+            </div>
+              
+            <!-- Delete Diag Modal -->
+            <div class='modal fade' id='ModalDiagDelete' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title'>Supprimer le tableau ?</h5>
+                        </div>
+                        <div class='modal-body'>
+                            Êtes-vous sûr(e) de vouloir supprimer le tableau ? Cette action est irréversible !
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' id='DeleteDiagYes' class='btn btn-primary'>Oui</button>
+                            <button type='button' id='DeleteDiagNo' class='btn btn-secondary'>Non</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-                
-                ";
+            
+            <!-- Change team Modal -->
+            <div class='modal fade' id='ModalTeamChange' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title'>Changer l'équipe en charge ?</h5>
+                        </div>
+                        <div class='modal-body'>
+                            Actuellement : <strong id='teamInCharge'></strong><br>
+                            <label for='teams'>".DIAG['modal2team']."</label>
+                            <select id='teamList' name='teams'>
+                                <option value='0'>".DIAG['modal2noteam']."</option>";
+                                $myTeams=retrieveTeamsFromUser($idUser,$db);
+                                while($teams = $myTeams->fetch())
+                                if($teams['id_team']==$idTeam)
+                                echo "<option selected='selected' value='".$teams['id_team']."'>".$teams['name_team']."</option>";
+                                else
+                                echo "<option value='".$teams['id_team']."'>".$teams['name_team']."</option>";
+                            echo "</select>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' id='ChangeTeamYes' class='btn btn-primary'>Changer</button>
+                            <button type='button' id='ChangeTeamNo' class='btn btn-secondary'>Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>";
+        }
     }
 
     // Display diagram

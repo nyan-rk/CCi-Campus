@@ -21,6 +21,11 @@ function screenshot(){
 $(document).ready(function(){
 
   var realuser=user;
+  var realteam=team;
+
+  //Initialising the team in charge in the modal
+  $('#teamInCharge').text($( "#teamList option:selected" ).text());
+
   //Recolor all stacks function
   function stackRecolor(){
     $('.row .colo').each(function () {
@@ -198,6 +203,29 @@ $(document).ready(function(){
   // Menu - Delete : No
   $(".container").on("click","#DeleteDiagNo",function(){
     $('#ModalDiagDelete').modal('toggle');
+  });
+
+  // Menu - Change team : Yes
+  $(".container").on("click","#ChangeTeamYes",function(){
+    $('#teamInCharge').text($( "#teamList option:selected" ).text());
+    $('#ModalTeamChange').modal('toggle');
+    /*$.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 9, user:realuser, diag:idDiag},
+      success: function(data){
+        window.location.href = 'dashboard.php';
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });*/
+    //console.log('Ta mere');
+  });
+
+  // Menu - Delete : No
+  $(".container").on("click","#ChangeTeamNo",function(){
+    $('#ModalTeamChange').modal('toggle');
   });
 
   // Task and stack closure

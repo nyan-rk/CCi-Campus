@@ -4,6 +4,7 @@
         $req->execute(array(htmlspecialchars($_GET['d'])));
         $resultat = $req->fetch();
         $SESSION['id_user']=1;
+        $user=(isset($_SESSION['id_user'])?$_SESSION['id_user']:0);
     ?>
     <div class="container">
         <?php
@@ -22,7 +23,7 @@
             <!-- Menu button + menu modals -->
             <div class="col-6 col-md-3 order-2 order-md-3" style="display: flex;align-items: center;">
                 <?php
-                    menuButton();
+                    menuButton($resultat['id_creator'],$user,$resultat['team_affili'],$bdd);
                 ?>
                 
             </div>
@@ -41,7 +42,8 @@
     </div>
 </body>
 <input type="hidden" id="dico" name="dico" text1="<?php echo DIAG['newtask'] ?>" text2="<?php echo DIAG['newstack']?>">
-<script>var user=<?php echo (isset($_SESSION['id_user'])?$_SESSION['id_user']:0);?>; </script>
+<script>var user=<?php echo $user;?>;
+var team=<?php echo $resultat['team_affili'];?> </script>
 <script src="./public/js/jquery-3.5.1.js"></script>
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="./public/js/diag.js"></script>
