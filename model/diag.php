@@ -30,6 +30,15 @@
 		));
     }
 
+    function updateDiagTeam($idDiag, $newTeam,$db)
+    {
+        $req=$db->prepare('UPDATE diag SET team_affili=:TEAM WHERE id_diag=:DIAG;');
+		$req->execute(array(
+			'TEAM' => $newTeam,
+			'DIAG' => $idDiag
+		));
+    }
+
     function updateAllDiagsToPersonal($idUser,$oldTeam,$db)
     {
         $req=$db->prepare('UPDATE diag SET team_affili=0 AND id_creator=:USER WHERE team_affili=:OLD;');
