@@ -15,9 +15,9 @@
             <button class='btn dropdown-toggle' type='button' id='menubutton' data-bs-toggle='dropdown' aria-expanded='false'>Menu</button>
                 <ul class='dropdown-menu' aria-labelledby='menubutton'>
                     <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item'>".DIAG['menudelete']."</a></li>
-                    <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item'>".DIAG['menuchangeteam']."</a></li>
-                    <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item'>".DIAG['menuchangecreator']."</a></li>
-                </ul>
+                    <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item'>".DIAG['menuchangeteam']."</a></li>";
+                    if ($idTeam!=0) echo" <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item'>".DIAG['menuchangecreator']."</a></li>";
+                echo" </ul>
             </div>
               
             <!-- Delete Diag Modal -->
