@@ -101,7 +101,7 @@ $(document).ready(function(){
         $('#exitTeamModal').val($(this).parent().next().attr('id').substring(5));
       });
 
-    // Remove diags
+    // Quit team - yes
       $("#exitTeamYes").on("click",function(){
         team=$('#exitTeamModal').val();
         /*$.ajax({

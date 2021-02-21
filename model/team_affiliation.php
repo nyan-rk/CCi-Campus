@@ -29,6 +29,16 @@
         return $req;
     }
 
+    // Remove one user from a team
+    function removeUserFromTeam($idUser,$idTeam,$db)
+    {
+        $req=$db->prepare('DELETE FROM team_affiliation WHERE id_team=:TEAM AND id_user=:USER');
+        $req->execute(array(
+            'TEAM' => $idTeam,
+            'USER' => $idUser
+        ));
+    }
+
     //Remove all affiliations with a team
     function removeAllAffilFromTeam($idTeam,$db)
     {
