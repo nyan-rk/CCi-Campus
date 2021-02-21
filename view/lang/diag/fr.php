@@ -8,5 +8,6 @@ define("DIAG", [
     'menuchangeteam' => 'Changer l\'équipe en charge',
     'menudelete' => 'Supprimer le tableau',
     'modal2team' => 'Équipe en charge',
-    'modal2noteam' => 'Aucune (tableau personnel)'
+    'modal2noteam' => 'Aucune (tableau personnel)',
+    'modal3admin' => 'Gérant(e) du tableau :'
 ]);

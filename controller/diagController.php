@@ -64,6 +64,33 @@
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Change diag creator modal -->
+            <div class='modal fade' id='MenuChangeCreator' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title'>Changer l'administrateur du tableau ?</h5>
+                        </div>
+                        <div class='modal-body'>
+                            Avertissement : vous n'aurez plus accès au bouton Menu.<br>
+                            <label for='members'>".DIAG['modal3admin']."</label>
+                            <select id='memberList' name='members'>";
+                                $myTeammates=teamMembers($idTeam,$db);
+                                while($membs = $myTeammates->fetch())
+                                if($membs['id_user']==$idUser)
+                                echo "<option selected='selected' value='".$membs['id_user']."'>".$membs['nickname_user']."</option>";
+                                else
+                                echo "<option value='".$membs['id_user']."'>".$membs['nickname_user']."</option>";
+                            echo "</select>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' id='ChangeAdminYes' class='btn btn-primary'>Changer</button>
+                            <button type='button' id='ChangeAdminNo' class='btn btn-secondary'>Annuler</button>
+                        </div>
+                    </div>
+                </div>
             </div>";
         }
     }
