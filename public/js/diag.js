@@ -207,19 +207,19 @@ $(document).ready(function(){
 
   // Menu - Change team : Yes
   $(".container").on("click","#ChangeTeamYes",function(){
-    $('#teamInCharge').text($( "#teamList option:selected" ).text());
-    $('#ModalTeamChange').modal('toggle');
-    /*$.ajax({
+    $.ajax({
       url: './controller/updateDiagAdmin.php',
       type: 'post',
-      data: {mode: 9, user:realuser, diag:idDiag},
+      data: {mode: 10, user:realuser, diag:idDiag, team:$( "#teamList option:selected" ).val()},
       success: function(data){
-        window.location.href = 'dashboard.php';
+        $('#teamInCharge').text($( "#teamList option:selected" ).text());
+        $('#ModalTeamChange').modal('toggle');
+        window.location.href=window.location.href;
       },
       error: function(data){
         console.log('Access denied');
       }
-    });*/
+    });
     //console.log('Ta mere');
   });
 
