@@ -223,11 +223,31 @@ $(document).ready(function(){
     //console.log('Ta mere');
   });
 
-  // Menu - Change team : No
-  $(".container").on("click","#ChangeTeamNo",function(){
-    $('#ModalTeamChange').modal('toggle');
+// Menu - Change team : No
+$(".container").on("click","#ChangeTeamNo",function(){
+  $('#ModalTeamChange').modal('toggle');
+});
+
+  // Menu - Change admin : Yes
+  $(".container").on("click","#ChangeAdminYes",function(){
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 11, user:realuser, diag:idDiag, newuser:$( "#memberList option:selected" ).val()},
+      success: function(data){
+        location.reload();
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+    //console.log('Ta mere');
   });
 
+  // Menu - Change admin : No
+  $(".container").on("click","#ChangeAdminNo",function(){
+    $('#MenuChangeCreator').modal('toggle');
+  });
 
   // Diag manipulation
   // Task and stack closure

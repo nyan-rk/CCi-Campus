@@ -39,6 +39,15 @@
 		));
     }
 
+    function updateDiagCreator($idDiag, $newCreator,$db)
+    {
+        $req=$db->prepare('UPDATE diag SET id_creator=:CREA WHERE id_diag=:DIAG;');
+		$req->execute(array(
+			'CREA' => $newCreator,
+			'DIAG' => $idDiag
+		));
+    }
+
     function updateAllDiagsToPersonal($idUser,$oldTeam,$db)
     {
         $req=$db->prepare('UPDATE diag SET team_affili=0 AND id_creator=:USER WHERE team_affili=:OLD;');

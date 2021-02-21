@@ -14,9 +14,9 @@
             "<div class='dropdown'>
             <button class='btn dropdown-toggle' type='button' id='menubutton' data-bs-toggle='dropdown' aria-expanded='false'>Menu</button>
                 <ul class='dropdown-menu' aria-labelledby='menubutton'>
-                    <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item' href='#'>".DIAG['menudelete']."</a></li>
-                    <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item' href='#'>".DIAG['menuchangeteam']."</a></li>
-                    <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item' href='#'>".DIAG['menuchangecreator']."</a></li>
+                    <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item'>".DIAG['menudelete']."</a></li>
+                    <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item'>".DIAG['menuchangeteam']."</a></li>
+                    <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item'>".DIAG['menuchangecreator']."</a></li>
                 </ul>
             </div>
               
