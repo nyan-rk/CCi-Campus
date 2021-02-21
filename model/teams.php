@@ -8,7 +8,7 @@
         return $db->lastInsertId();
     }
 
-    // Retrieve all teams from a user
+    // Delete a team
     function deleteTeam($idTeam,$db)
     {
         $req=$db->prepare('DELETE FROM TEAMS WHERE id_team=:TEAM');

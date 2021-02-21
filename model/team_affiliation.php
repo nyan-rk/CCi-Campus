@@ -21,6 +21,14 @@
         return $req;
     }
 
+    // Retrieve all team members
+    function teamMembers($idTeam,$db)
+    {
+        $req=$db->prepare('SELECT u.id_user, u.nickname_user FROM user as u inner join team_affiliation as i on u.id_user=i.id_user inner join teams as t on t.id_team=i.id_team WHERE t.id_team=:TEAM');
+        $req->execute(array('TEAM' => $idTeam));
+        return $req;
+    }
+
     //Remove all affiliations with a team
     function removeAllAffilFromTeam($idTeam,$db)
     {

@@ -223,11 +223,13 @@ $(document).ready(function(){
     //console.log('Ta mere');
   });
 
-  // Menu - Delete : No
+  // Menu - Change team : No
   $(".container").on("click","#ChangeTeamNo",function(){
     $('#ModalTeamChange').modal('toggle');
   });
 
+
+  // Diag manipulation
   // Task and stack closure
   $(".row").on("click",".closeTask",function(){
     let $parent=$(this).parents()[0];
