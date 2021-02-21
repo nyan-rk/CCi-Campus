@@ -23,7 +23,7 @@
             <!-- Menu button + menu modals -->
             <div class="col-6 col-md-3 order-2 order-md-3" style="display: flex;align-items: center;">
                 <?php
-                    menuButton($resultat['id_creator'],$user,$resultat['team_affili'],$bdd);
+                    menuButton($resultat['id_creator'],$user,$resultat['team_affili'],$resultat['vis_diag'],$bdd);
                 ?>
                 
             </div>

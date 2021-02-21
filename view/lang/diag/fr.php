@@ -6,6 +6,7 @@ define("DIAG", [
     'newstack' => 'Nouvelle colonne...',
     'menuchangecreator' => 'Changer le propriétaire du tableau',
     'menuchangeteam' => 'Changer l\'équipe en charge',
+    'menuchangevis' => 'Changer la visibilité du tableau',
     'menudelete' => 'Supprimer le tableau',
     'modal2team' => 'Équipe en charge',
     'modal2noteam' => 'Aucune (tableau personnel)',

@@ -25,6 +25,7 @@ $(document).ready(function(){
 
   //Initialising the team in charge in the modal
   $('#teamInCharge').text($( "#teamList option:selected" ).text());
+  $('#currentVis').text($( "#visibList option:selected" ).text());
 
   //Recolor all stacks function
   function stackRecolor(){

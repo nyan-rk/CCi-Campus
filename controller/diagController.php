@@ -7,7 +7,7 @@
     }
 
     // Show button
-    function menuButton($idCreator, $idUser,$idTeam,$db)
+    function menuButton($idCreator,$idUser,$idTeam,$visibDiag,$db)
     {
         if ($idCreator==$idUser){
             echo 
@@ -17,7 +17,8 @@
                     <li><a data-toggle='modal' data-target='#ModalDiagDelete' class='dropdown-item'>".DIAG['menudelete']."</a></li>
                     <li><a data-toggle='modal' data-target='#ModalTeamChange' class='dropdown-item'>".DIAG['menuchangeteam']."</a></li>";
                     if ($idTeam!=0) echo" <li><a data-toggle='modal' data-target='#MenuChangeCreator' class='dropdown-item'>".DIAG['menuchangecreator']."</a></li>";
-                echo" </ul>
+                echo"<li><a data-toggle='modal' data-target='#ModalVisibChange' class='dropdown-item'>".DIAG['menuchangevis']."</a></li>
+                 </ul>
             </div>
               
             <!-- Delete Diag Modal -->
@@ -88,6 +89,39 @@
                         <div class='modal-footer'>
                             <button type='button' id='ChangeAdminYes' class='btn btn-primary'>Changer</button>
                             <button type='button' id='ChangeAdminNo' class='btn btn-secondary'>Annuler</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Change visibility Modal -->
+            <div class='modal fade' id='ModalVisibChange' tabindex='-1' role='dialog' aria-labelledby='exampleModalLabel' aria-hidden='true'>
+                <div class='modal-dialog modal-dialog-centered' role='document'>
+                    <div class='modal-content'>
+                        <div class='modal-header'>
+                            <h5 class='modal-title'>Changer la visibilité du tableau ?</h5>
+                        </div>
+                        <div class='modal-body'>
+                            Actuellement : <strong id='currentVis'></strong><br>
+                            <label for='visib'>Visibilité :</label>
+                            <select id='visibList' name='visib'>";
+                                if($visibDiag==0) echo"<option selected='selected' value='0'>Public</option>";
+                                else echo"<option value='0'>Public</option>";
+                                if($visibDiag==1) echo"<option selected='selected' value='1'>Utilisateurs connectés</option>";
+                                else echo "<option value='1'>Utilisateurs connectés</option>";
+                                if($visibDiag==2){
+                                    if ($idTeam==0) echo "<option selected='selected' value='2'>Privé</option>";
+                                    else "<option selected='selected' value='2'>Membres de l'équipe</option>";
+                                }
+                                else{
+                                    if ($idTeam==0) echo "<option value='2'>Privé</option>";
+                                    else "<option value='2'>Membres de l'équipe</option>";
+                                }
+                            echo "</select>
+                        </div>
+                        <div class='modal-footer'>
+                            <button type='button' id='ChangeVisibYes' class='btn btn-primary'>Changer</button>
+                            <button type='button' id='ChangeVisibNo' class='btn btn-secondary'>Annuler</button>
                         </div>
                     </div>
                 </div>
