@@ -1,12 +1,13 @@
 <?php 
 
-    function createDiag($idUser,$nameDiag,$descDiag,$idTeam,$db)
+    function createDiag($idUser,$nameDiag,$descDiag,$visDiag,$idTeam,$db)
     {
-        $req=$db->prepare('INSERT INTO diag (name_diag, desc_diag, id_creator, team_affili) VALUES (:NAME,:DESC,:CREATOR, :TEAM)');
+        $req=$db->prepare('INSERT INTO diag (name_diag, desc_diag, id_creator,vis_diag, team_affili) VALUES (:NAME,:DESC,:CREATOR, :VISI, :TEAM)');
 		$req->execute(array(
 			'NAME' => $nameDiag,
             'DESC' => $descDiag,
             'CREATOR' => $idUser,
+            'VISI' => $visDiag,
 			'TEAM' => $idTeam
 		));
         echo $db->lastInsertId();
