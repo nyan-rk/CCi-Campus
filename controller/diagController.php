@@ -189,4 +189,36 @@
         if ($permi==2) echo "
             <div class='colo colnew'><svg id='newStackButton' width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>";
     }
+
+    function pageBuilder($idDiag,$userz,$res,$perm,$db)
+    {
+        echo "<h2 id='diagTitle'>".$res["name_diag"]."</h2>
+        <div class='row'>
+            <div class='col-6 col-md-3 order-1 order-md-1' id='avacanvas'>";
+                showAvatar($res["id_creator"]);
+                echo "</div>
+            <div class='col-md-6 order-3 order-md-2'>
+                <strong>".DIAG["objectives"]."</strong>
+                <br><p id='descDiag'>".nl2br($res["desc_diag"])."</p>
+            </div>
+
+            <!-- Menu button + menu modals -->
+            <div class='col-6 col-md-3 order-2 order-md-3' style='display: flex;align-items: center;'>";
+                menuButton($res['id_creator'],$userz,$res['team_affili'],$res['vis_diag'],$db);
+                echo "</div>
+        </div>
+
+        <!-- The diag's content -->
+        <div id='diagcont'>
+            <div class='row' id='diag'>";
+                displayDiag($idDiag,$perm,$db); 
+                if (isset($_SESSION['id_user'])) addView($idDiag,$_SESSION['id_user'], $db);
+                echo "</div>
+        </div>";
+    }
+
+    function prePageBuilder ($idDiag,$userz,$res,$perm,$db)
+    {
+        
+    }
 ?>
