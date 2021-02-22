@@ -1,4 +1,38 @@
 <?php
+
+    // Checks the level of permission a user has on the diag
+    // if not connected, idUser=0
+    /* 0 : can't see
+        1 : can see but can't edit
+        2 : can see and edit */
+    function canSee($idDiag,$idVisi,$idTeam,$idUser,$idCrea)
+    {   
+        //Personal diag case
+        if($idTeam==0){
+            // If not creator
+            if ($idUser!=$idCrea){
+                if($idVisi==1) return 1 ;
+                else return 2;
+            }
+            // then creator
+            else return 2 ;
+        }
+        // Non-personal diag case
+        else if ($idUser!=0){
+            $isIn=isInTeam($idUser,$idTeam, $bdd);
+            $letsCheck=$isIn->fetch();
+            // if in team
+            if($letsCheck['I_exist']==1) return 2 ;
+            // not in team but for connected users
+            else if ($idVisi==1) return 1;
+            // connected users - private
+            else return 0;
+        }
+        // then not connected
+        else return 0;
+
+    }
+
     // Show avatar
     function showAvatar($idCreator)
     {
