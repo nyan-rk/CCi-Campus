@@ -1,4 +1,9 @@
 <?php
+    $req=retrieveDiag(htmlspecialchars($_GET['d']),$bdd);
+    $resultat = $req->fetch();
+    $_SESSION['id_user']=1;
+    $user=(isset($_SESSION['id_user'])?$_SESSION['id_user']:0);
+    $perm=canSee($_GET['d'],$resultat['vis_diag'],$resultat['team_affili'],$user,$resultat["id_creator"],$bdd);
 
     // Checks the level of permission a user has on the diag
     // if not connected, idUser=0
@@ -24,7 +29,7 @@
             // if in team
             if($letsCheck['I_exist']==1) return 2 ;
             // not in team but for connected users
-            else if ($idVisi==1) return 1;
+            else if ($idVisi==1 or $idVisi==0) return 1;
             // connected users - private
             else return 0;
         }
@@ -219,6 +224,26 @@
 
     function prePageBuilder ($idDiag,$userz,$res,$perm,$db)
     {
-        
+        var_dump($perm);
+        // Diag doesn't exist
+        if($res==false){
+            echo "Ce diagramme n'existe pas.";
+        }
+        // Private personal diag
+        else if ($perm==0 AND $res['id_creator']!=$userz and $res['team_affili']==0)
+        {
+            echo "Ce diagramme est privé.";
+        }
+        // Diag reserved to team members
+        else if ($perm==0 and $res['vis_diag']==2)
+        {
+            echo "Ce diagramme n'est visible que pour les membres de son équipe.";
+        }
+        // Diag reserved to connected users
+        else if ($perm==0 and $userz==0)
+        {
+            echo "Ce diagramme n'est visible que pour les membres connectés";
+        }
+        else PageBuilder ($idDiag,$userz,$res,$perm,$db);
     }
 ?>

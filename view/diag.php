@@ -1,14 +1,7 @@
 <body>
-    <?php
-        $req=retrieveDiag(htmlspecialchars($_GET['d']),$bdd);
-        $resultat = $req->fetch();
-        $_SESSION['id_user']=1;
-        $user=(isset($_SESSION['id_user'])?$_SESSION['id_user']:0);
-        $perm=canSee($_GET['d'],$resultat['vis_diag'],$resultat['team_affili'],$user,$resultat["id_creator"],$bdd);
-    ?>
     <div class="container">
         <?php 
-        pageBuilder($_GET['d'],$user,$resultat,$perm,$bdd);
+            prePageBuilder($_GET['d'],$user,$resultat,$perm,$bdd);
         ?>
     </div>
 </body>
