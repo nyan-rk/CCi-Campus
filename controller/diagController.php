@@ -5,21 +5,21 @@
     /* 0 : can't see
         1 : can see but can't edit
         2 : can see and edit */
-    function canSee($idDiag,$idVisi,$idTeam,$idUser,$idCrea)
+    function canSee($idDiag,$idVisi,$idTeam,$idUser,$idCrea,$db)
     {   
         //Personal diag case
         if($idTeam==0){
             // If not creator
             if ($idUser!=$idCrea){
                 if($idVisi==1) return 1 ;
-                else return 2;
+                else return 0;
             }
             // then creator
             else return 2 ;
         }
         // Non-personal diag case
         else if ($idUser!=0){
-            $isIn=isInTeam($idUser,$idTeam, $bdd);
+            $isIn=isInTeam($idUser,$idTeam, $db);
             $letsCheck=$isIn->fetch();
             // if in team
             if($letsCheck['I_exist']==1) return 2 ;
@@ -164,23 +164,29 @@
     }
 
     // Display diagram
-    function displayDiag($idDiag,$db)
+    function displayDiag($idDiag,$permi,$db)
     {
         /*Boucle d'affichage des colonnes
         while($donnees = $forrest->fetch()){*/
         $colCursor = stackDisplay($idDiag,$db);
         while($donnees=$colCursor->fetch()){
             /*echo "<div class='colo'><img class='noteholes' src='note.png'><div class='closeTask'>x</div><div class='card'><div class='card-header stack-header'>".$donnees['name_col']."</div>";*/
-            echo "<div class='colo color".(($donnees['order_stack']-1)%4 + 1)."'><svg class='noteholes' width='288px' height='33px'><use href='./public/images/diag/note.svg#holes'></use></svg><i class='fas fa-times closeTask'></i><div class='card'><div class='card-header stack-header'>".$donnees['name_stack']."</div>";
+            echo "<div class='colo color".(($donnees['order_stack']-1)%4 + 1)."'><svg class='noteholes' width='288px' height='33px'><use href='./public/images/diag/note.svg#holes'></use></svg>";
+            if ($permi==2) echo "<i class='fas fa-times closeTask'></i>";
+            echo "<div class='card'><div class='card-header stack-header'>".$donnees['name_stack']."</div>";
             echo "<ul class='list-group list-group-flush stack'>";
             /*Boucle d'affichage des lignes*/
             $rowCursor=taskDisplay($donnees['id_stack'],$db);
             while($donnees2 = $rowCursor->fetch()){
-                echo "<li id='task-".$donnees2['id_task']."' class='list-group-item task'><i class='fas fa-times closeTask'></i>".$donnees2['name_task']."</li>";
+                if ($permi==2) echo "<li id='task-".$donnees2['id_task']."' class='list-group-item task'><i class='fas fa-times closeTask'></i>".$donnees2['name_task']."</li>";
+                else echo "<li id='task-".$donnees2['id_task']."' class='list-group-item task'>".$donnees2['name_task']."</li>";
             }
             $rowCursor->closeCursor(); 
-            echo '</ul><input type="text" class="newTask" placeholder="'.DIAG['newtask'].'"></input></div></div>';
+            if ($permi==2) echo '</ul><input type="text" class="newTask" placeholder="'.DIAG['newtask'].'"></input>';
+            echo "</div></div>";
         }
         $colCursor->closeCursor();
+        if ($permi==2) echo "
+            <div class='colo colnew'><svg id='newStackButton' width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>";
     }
 ?>

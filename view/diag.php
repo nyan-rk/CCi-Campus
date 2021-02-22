@@ -3,8 +3,9 @@
         $req=$bdd->prepare('SELECT * FROM diag WHERE id_diag= ?');
         $req->execute(array(htmlspecialchars($_GET['d'])));
         $resultat = $req->fetch();
-        $SESSION['id_user']=1;
+        $_SESSION['id_user']=1;
         $user=(isset($_SESSION['id_user'])?$_SESSION['id_user']:0);
+        $perm=canSee($_GET['d'],$resultat['vis_diag'],$resultat['team_affili'],$user,$resultat["id_creator"],$bdd);
     ?>
     <div class="container">
         <?php
@@ -25,18 +26,14 @@
                 <?php
                     menuButton($resultat['id_creator'],$user,$resultat['team_affili'],$resultat['vis_diag'],$bdd);
                 ?>
-                
             </div>
         </div>
         <div id="diagcont">
             <div class="row" id="diag">
             <?php
-                displayDiag($_GET['d'],$bdd);
+                displayDiag($_GET['d'],$perm,$bdd); 
+                if (isset($_SESSION['id_user'])) addView($_GET['d'],$_SESSION['id_user'], $bdd);
             ?>
-            <!--<div class='colo'><input type="text" class="newStack" placeholder="Nouvelle colonne..."></input></div>-->
-            <div class='colo colnew'><svg id="newStackButton" width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>
-            <?php //echo file_get_contents("./public/images/icons/plus - copie.svg"); 
-            addView($_GET['d'],$SESSION['id_user'], $bdd)?>
             </div>
         </div>
     </div>
@@ -44,7 +41,7 @@
 <input type="hidden" id="dico" name="dico" text1="<?php echo DIAG['newtask'] ?>" text2="<?php echo DIAG['newstack']?>">
 <script>var user=<?php echo $user;?>;
 var team=<?php echo $resultat['team_affili'];?> </script>
-<script src="./public/js/jquery-3.5.1.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-<script src="./public/js/diag.js"></script>
-<script src="./public/js/html2canvas.js"></script>
+<?php if ($perm==2) echo "<script src='./public/js/jquery-3.5.1.js'></script>
+<script src='https://code.jquery.com/ui/1.12.1/jquery-ui.js'></script>
+<script src='./public/js/diag.js'></script>
+<script src='./public/js/html2canvas.js'></script>"; ?>
