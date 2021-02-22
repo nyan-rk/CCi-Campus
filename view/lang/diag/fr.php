@@ -1,6 +1,10 @@
 <?php
-$title='';
+$title='Cardly - Erreur';
 define("DIAG", [
+    'secunonexistant' => 'Ce tableau n\'existe pas.',
+    'secuprivate' => 'Ce tableau est privé.',
+    'secuteam' => 'Ce tableau n\'est visible que pour les membres de son équipe.',
+    'secuconnected' => 'Ce tableau n\'est visible que pour les membres connectés',
     'objectives'=>'Objectif(s) de ce projet',
     'newtask'=>'Nouvelle tâche...',
     'newstack' => 'Nouvelle colonne...',
@@ -8,7 +12,27 @@ define("DIAG", [
     'menuchangeteam' => 'Changer l\'équipe en charge',
     'menuchangevis' => 'Changer la visibilité du tableau',
     'menudelete' => 'Supprimer le tableau',
+    'modal1title' => 'Supprimer le tableau ?',
+    'modal1body' => 'Êtes-vous sûr(e) de vouloir supprimer le tableau ? Cette action est irréversible !',
+    'modal1yes' => 'Oui',
+    'modal1no' => 'Non',
+    'modal2title' => 'Changer l\'équipe en charge ?',
+    'modal2body' => 'Actuellement : ',
     'modal2team' => 'Équipe en charge',
     'modal2noteam' => 'Aucune (tableau personnel)',
-    'modal3admin' => 'Gérant(e) du tableau :'
+    'modal2yes' => 'Changer',
+    'modal2no' => 'Annuler',
+    'modal3title' => 'Changer l\'administrateur du tableau ?',
+    'modal3body' => 'Avertissement : vous n\'aurez plus accès au bouton Menu.',
+    'modal3admin' => 'Gérant(e) du tableau : ',
+    'modal3yes' => 'Changer',
+    'modal3no' => 'Annuler',
+    'modal4title' => 'Changer la visibilité du tableau ?',
+    'modal4body' => 'Actuellement : ',
+    'modal4option1' => 'Public',
+    'modal4option2' => 'Utilisateurs connectés',
+    'modal4option3' => 'Membres de l\'équipe',
+    'modal4option3bis' => 'Privé',
+    'modal4yes' => 'Changer',
+    'modal4no' => 'Annuler'
 ]);

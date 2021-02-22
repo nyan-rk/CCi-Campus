@@ -65,14 +65,14 @@
                 <div class='modal-dialog modal-dialog-centered' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                            <h5 class='modal-title'>Supprimer le tableau ?</h5>
+                            <h5 class='modal-title'>".DIAG['modal1title']."</h5>
                         </div>
                         <div class='modal-body'>
-                            Êtes-vous sûr(e) de vouloir supprimer le tableau ? Cette action est irréversible !
+                        ".DIAG['modal1body']."
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' id='DeleteDiagYes' class='btn btn-primary'>Oui</button>
-                            <button type='button' id='DeleteDiagNo' class='btn btn-secondary'>Non</button>
+                            <button type='button' id='DeleteDiagYes' class='btn btn-primary'>".DIAG['modal1yes']."</button>
+                            <button type='button' id='DeleteDiagNo' class='btn btn-secondary'>".DIAG['modal1no']."</button>
                         </div>
                     </div>
                 </div>
@@ -83,10 +83,10 @@
                 <div class='modal-dialog modal-dialog-centered' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                            <h5 class='modal-title'>Changer l'équipe en charge ?</h5>
+                            <h5 class='modal-title'>".DIAG['modal2title']."</h5>
                         </div>
                         <div class='modal-body'>
-                            Actuellement : <strong id='teamInCharge'></strong><br>
+                        ".DIAG['modal2body']." <strong id='teamInCharge'></strong><br>
                             <label for='teams'>".DIAG['modal2team']."</label>
                             <select id='teamList' name='teams'>
                                 <option value='0'>".DIAG['modal2noteam']."</option>";
@@ -99,8 +99,8 @@
                             echo "</select>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' id='ChangeTeamYes' class='btn btn-primary'>Changer</button>
-                            <button type='button' id='ChangeTeamNo' class='btn btn-secondary'>Annuler</button>
+                            <button type='button' id='ChangeTeamYes' class='btn btn-primary'>".DIAG['modal2yes']."</button>
+                            <button type='button' id='ChangeTeamNo' class='btn btn-secondary'>".DIAG['modal2no']."</button>
                         </div>
                     </div>
                 </div>
@@ -111,10 +111,10 @@
                 <div class='modal-dialog modal-dialog-centered' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                            <h5 class='modal-title'>Changer l'administrateur du tableau ?</h5>
+                            <h5 class='modal-title'>".DIAG['modal3title']."</h5>
                         </div>
                         <div class='modal-body'>
-                            Avertissement : vous n'aurez plus accès au bouton Menu.<br>
+                        ".DIAG['modal3body']."<br>
                             <label for='members'>".DIAG['modal3admin']."</label>
                             <select id='memberList' name='members'>";
                                 $myTeammates=teamMembers($idTeam,$db);
@@ -126,8 +126,8 @@
                             echo "</select>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' id='ChangeAdminYes' class='btn btn-primary'>Changer</button>
-                            <button type='button' id='ChangeAdminNo' class='btn btn-secondary'>Annuler</button>
+                            <button type='button' id='ChangeAdminYes' class='btn btn-primary'>".DIAG['modal3yes']."</button>
+                            <button type='button' id='ChangeAdminNo' class='btn btn-secondary'>".DIAG['modal3no']."</button>
                         </div>
                     </div>
                 </div>
@@ -138,29 +138,29 @@
                 <div class='modal-dialog modal-dialog-centered' role='document'>
                     <div class='modal-content'>
                         <div class='modal-header'>
-                            <h5 class='modal-title'>Changer la visibilité du tableau ?</h5>
+                            <h5 class='modal-title'>".DIAG['modal4title']."</h5>
                         </div>
                         <div class='modal-body'>
-                            Actuellement : <strong id='currentVis'></strong><br>
+                        ".DIAG['modal4body']."<strong id='currentVis'></strong><br>
                             <label for='visib'>Visibilité :</label>
                             <select id='visibList' name='visib'>";
-                                if($visibDiag==0) echo"<option selected='selected' value='0'>Public</option>";
-                                else echo"<option value='0'>Public</option>";
-                                if($visibDiag==1) echo"<option selected='selected' value='1'>Utilisateurs connectés</option>";
-                                else echo "<option value='1'>Utilisateurs connectés</option>";
+                                if($visibDiag==0) echo"<option selected='selected' value='0'>".DIAG['modal4option1']."</option>";
+                                else echo "<option value='0'>".DIAG['modal4option1']."</option>";
+                                if($visibDiag==1) echo"<option selected='selected' value='1'>".DIAG['modal4option2']."</option>";
+                                else echo "<option value='1'>".DIAG['modal4option2']."</option>";
                                 if($visibDiag==2){
-                                    if ($idTeam==0) echo "<option selected='selected' value='2'>Privé</option>";
-                                    else "<option selected='selected' value='2'>Membres de l'équipe</option>";
+                                    if ($idTeam==0) echo "<option selected='selected' value='2'>".DIAG['modal4option3bis']."</option>";
+                                    else "<option selected='selected' value='2'>".DIAG['modal4option3']."</option>";
                                 }
                                 else{
-                                    if ($idTeam==0) echo "<option value='2'>Privé</option>";
-                                    else "<option value='2'>Membres de l'équipe</option>";
+                                    if ($idTeam==0) echo "<option value='2'>".DIAG['modal4option3bis']."</option>";
+                                    else "<option value='2'>".DIAG['modal4option3']."</option>";
                                 }
                             echo "</select>
                         </div>
                         <div class='modal-footer'>
-                            <button type='button' id='ChangeVisibYes' class='btn btn-primary'>Changer</button>
-                            <button type='button' id='ChangeVisibNo' class='btn btn-secondary'>Annuler</button>
+                            <button type='button' id='ChangeVisibYes' class='btn btn-primary'>".DIAG['modal4yes']."</button>
+                            <button type='button' id='ChangeVisibNo' class='btn btn-secondary'>".DIAG['modal4no']."</button>
                         </div>
                     </div>
                 </div>
@@ -171,16 +171,14 @@
     // Display diagram
     function displayDiag($idDiag,$permi,$db)
     {
-        /*Boucle d'affichage des colonnes
-        while($donnees = $forrest->fetch()){*/
+        //Display of columns
         $colCursor = stackDisplay($idDiag,$db);
         while($donnees=$colCursor->fetch()){
-            /*echo "<div class='colo'><img class='noteholes' src='note.png'><div class='closeTask'>x</div><div class='card'><div class='card-header stack-header'>".$donnees['name_col']."</div>";*/
             echo "<div class='colo color".(($donnees['order_stack']-1)%4 + 1)."'><svg class='noteholes' width='288px' height='33px'><use href='./public/images/diag/note.svg#holes'></use></svg>";
             if ($permi==2) echo "<i class='fas fa-times closeTask'></i>";
             echo "<div class='card'><div class='card-header stack-header'>".$donnees['name_stack']."</div>";
             echo "<ul class='list-group list-group-flush stack'>";
-            /*Boucle d'affichage des lignes*/
+            /*Display of rows */
             $rowCursor=taskDisplay($donnees['id_stack'],$db);
             while($donnees2 = $rowCursor->fetch()){
                 if ($permi==2) echo "<li id='task-".$donnees2['id_task']."' class='list-group-item task'><i class='fas fa-times closeTask'></i>".$donnees2['name_task']."</li>";
@@ -195,6 +193,7 @@
             <div class='colo colnew'><svg id='newStackButton' width='100px' height='100px'><use href='./public/images/icons/plus.svg#plus'></use></svg></div>";
     }
 
+    // Page building function. Will only be called if the user's permission is 1 or 2.
     function pageBuilder($idDiag,$userz,$res,$perm,$db)
     {
         echo "<h2 id='diagTitle'>".$res["name_diag"]."</h2>
@@ -222,27 +221,28 @@
         </div>";
     }
 
+    // Pre-page building function. Will display a text or show the diag.
     function prePageBuilder ($idDiag,$userz,$res,$perm,$db)
     {
-        var_dump($perm);
+        //var_dump($perm);
         // Diag doesn't exist
         if($res==false){
-            echo "Ce diagramme n'existe pas.";
+            echo "<div id='notauthorized'>".DIAG['secunonexistant']."</div>";
         }
         // Private personal diag
         else if ($perm==0 AND $res['id_creator']!=$userz and $res['team_affili']==0)
         {
-            echo "Ce diagramme est privé.";
+            echo "<div id='notauthorized'>".DIAG['secuprivate']."</div>";
         }
         // Diag reserved to team members
         else if ($perm==0 and $res['vis_diag']==2)
         {
-            echo "Ce diagramme n'est visible que pour les membres de son équipe.";
+            echo "<div id='notauthorized'>".DIAG['secuteam']."</div>";
         }
         // Diag reserved to connected users
         else if ($perm==0 and $userz==0)
         {
-            echo "Ce diagramme n'est visible que pour les membres connectés";
+            echo "<div id='notauthorized'>".DIAG['secuconnected']."</div>";
         }
         else PageBuilder ($idDiag,$userz,$res,$perm,$db);
     }

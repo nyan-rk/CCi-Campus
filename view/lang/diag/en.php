@@ -1,7 +1,38 @@
 <?php
-$title='';
+$title='Cardly - Error';
 define("DIAG", [
+    'secunonexistant' => 'This board doesn\'t exist.',
+    'secuprivate' => 'This board is private.',
+    'secuteam' => 'This board is only visible to the team members.',
+    'secuconnected' => 'This board is only visible to connected users.',
     'objectives'=>'Project\'s objective(s)',
-    'newtask'=>'New task',
-    'newstack' => 'New stack'
+    'newtask'=>'New task...',
+    'newstack' => 'New stack...',
+    'menuchangecreator' => 'Change the board\'s owner',
+    'menuchangeteam' => 'Change the team linked',
+    'menuchangevis' => 'Change the board\'s visibility',
+    'menudelete' => 'Delete the board',
+    'modal1title' => 'Delete the board?',
+    'modal1body' => 'Are you sure you want to delete this board? This action can\'t be undone!',
+    'modal1yes' => 'Yes',
+    'modal1no' => 'No',
+    'modal2title' => 'Change the team linked?',
+    'modal2body' => 'Currently: ',
+    'modal2team' => 'Team linked',
+    'modal2noteam' => 'None (personal board)',
+    'modal2yes' => 'Change',
+    'modal2no' => 'Cancel',
+    'modal3title' => 'Change the board\'s owner?',
+    'modal3body' => 'Warning: you will no longer have access to the Menu button.',
+    'modal3admin' => 'Gérant(e) du tableau : ',
+    'modal3yes' => 'Change',
+    'modal3no' => 'Cancel',
+    'modal4title' => 'Change the board\'s visibility?',
+    'modal4body' => 'Currently: ',
+    'modal4option1' => 'Public',
+    'modal4option2' => 'Connected users',
+    'modal4option3' => 'Team members',
+    'modal4option3bis' => 'Private',
+    'modal4yes' => 'Change',
+    'modal4no' => 'Cancel'
 ]);

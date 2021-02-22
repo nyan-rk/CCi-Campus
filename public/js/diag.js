@@ -126,6 +126,7 @@ $(document).ready(function(){
         type: 'post',
         data: {mode: 1, title:this.value, diag:idDiag},
         success: function(data){
+          $(document).prop('title', 'Cardly - '+$('#diagTitle').text());
           console.log('Title changed');
         },
         error: function(data){
