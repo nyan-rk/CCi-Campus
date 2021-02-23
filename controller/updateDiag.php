@@ -1,7 +1,6 @@
 <?php
     include '../model/connexion_bdd_ajax.php';
     ($_POST['mode'])?$mode=$_POST['mode']:$mode=0;
-    //$mode=5;$task=1;$stack=4;
 
     /*Update modes :
     1 : Title update

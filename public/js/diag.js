@@ -19,7 +19,14 @@ function screenshot(){
 }
 
 $(document).ready(function(){
-  console.log($("#dico").attr("text1"));
+
+  var realuser=user;
+  var realteam=team;
+
+  //Initialising the team in charge in the modal
+  $('#teamInCharge').text($( "#teamList option:selected" ).text());
+  $('#currentVis').text($( "#visibList option:selected" ).text());
+
   //Recolor all stacks function
   function stackRecolor(){
     $('.row .colo').each(function () {
@@ -107,8 +114,8 @@ $(document).ready(function(){
   $(".container").on("click","#diagTitle",function(){
     $(this).replaceWith("<input id='diagTitleEdit' value='"+$(this).text()+"'></input>");
     console.log(placeholderTask);
-    //screenshot();
-});
+    screenshot();
+  });
 
   $(".container").on("keypress","#diagTitleEdit",function(e){
     console.log(e.which);
@@ -119,6 +126,7 @@ $(document).ready(function(){
         type: 'post',
         data: {mode: 1, title:this.value, diag:idDiag},
         success: function(data){
+          $(document).prop('title', 'Cardly - '+$('#diagTitle').text());
           console.log('Title changed');
         },
         error: function(data){
@@ -132,7 +140,7 @@ $(document).ready(function(){
 //Desc edit
   $(".container").on("click","#descDiag",function(){
     $(this).replaceWith("<textarea id='descDiagEdit'>"+$(this).text().replace('<br/>',/\n/g)+"</textarea>");
-  //screenshot();
+  screenshot();
   });
 
   $(".container").on("keypress","#descDiagEdit",function(e){
@@ -153,7 +161,120 @@ $(document).ready(function(){
     }
   });
 
+  // Menu Modals
+  // Menu button - fixing Bootstrap's shit.
+  $("#menubutton").on("click",function(){
+    if($("#menubutton").hasClass("show")){
+        $("#menubutton").attr("aria-expanded",'false');
+        $("#menubutton").next().removeClass("show");
+        $("#menubutton").removeClass("show");
+    }
+    else{
+        $("#menubutton").attr("aria-expanded",'true');
+        $("#menubutton").addClass("show");
+        $("#menubutton").next().addClass("show");
+        $("#menubutton").next().attr("data-popper-placement",'bottom-end');
+        $("#menubutton").next().attr("style",'margin: 0px; position: absolute; inset: 0px auto auto 0px; transform: translate(-225px, 40px);');
+    }
+});
+  $(document).on("click", function(event){
+    if(!$(event.target).closest("#menubutton").length){
+      $("#menubutton").attr("aria-expanded",'false');
+      $("#menubutton").next().removeClass("show");
+      $("#menubutton").removeClass("show");
+    }
+  });
 
+  // Menu - Delete : Yes
+  $(".container").on("click","#DeleteDiagYes",function(){
+    //$('#ModalDiagDelete').modal('toggle');
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 9, user:realuser, diag:idDiag},
+      success: function(data){
+        window.location.href = 'dashboard.php';
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+    //console.log('Ta mere');
+  });
+
+  // Menu - Delete : No
+  $(".container").on("click","#DeleteDiagNo",function(){
+    $('#ModalDiagDelete').modal('toggle');
+  });
+
+  // Menu - Change team : Yes
+  $(".container").on("click","#ChangeTeamYes",function(){
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 10, user:realuser, diag:idDiag, team:$( "#teamList option:selected" ).val()},
+      success: function(data){
+        $('#teamInCharge').text($( "#teamList option:selected" ).text());
+        $('#ModalTeamChange').modal('toggle');
+        location.reload();
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+    //console.log('Ta mere');
+  });
+
+// Menu - Change team : No
+  $(".container").on("click","#ChangeTeamNo",function(){
+    $('#ModalTeamChange').modal('toggle');
+  });
+
+  // Menu - Change admin : Yes
+  $(".container").on("click","#ChangeAdminYes",function(){
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 11, user:realuser, diag:idDiag, newuser:$( "#memberList option:selected" ).val()},
+      success: function(data){
+        location.reload();
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+  });
+
+  // Menu - Change admin : No
+  $(".container").on("click","#ChangeAdminNo",function(){
+    $('#MenuChangeCreator').modal('toggle');
+  });
+
+  // Menu - Change visib : Yes
+  $(".container").on("click","#ChangeVisibYes",function(){
+    $.ajax({
+      url: './controller/updateDiagAdmin.php',
+      type: 'post',
+      data: {mode: 12, user:realuser, diag:idDiag, visi:$( "#visibList option:selected" ).val()},
+      success: function(data){
+        $('#currentVis').text($( "#visibList option:selected" ).text());
+        $('#ModalVisibChange').modal('toggle');
+        location.reload();
+      },
+      error: function(data){
+        console.log('Access denied');
+      }
+    });
+    //console.log('Ta mere');
+  });
+
+// Menu - Change visib : No
+  $(".container").on("click","#ChangeVisibNo",function(){
+    $('#ModalVisibChange').modal('toggle');
+  });
+  
+
+  // Diag manipulation
   // Task and stack closure
   $(".row").on("click",".closeTask",function(){
     let $parent=$(this).parents()[0];
@@ -184,12 +305,12 @@ $(document).ready(function(){
           console.log("Stack "+$stack+" removed");
           stackRecolor();
         }
+        screenshot();
       },
       error: function(data){
-        console.log('Desc unchanged');
+        console.log('Nothing changed');
       }
     });
-    screenshot();
   });
 
     $(".row").on("keypress",".newTask",function(e){

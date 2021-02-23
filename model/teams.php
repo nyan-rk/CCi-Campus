@@ -1,5 +1,20 @@
 <?php 
 
+    //Creation of a new team
+    function createNewTeam($nameTeam, $db)
+    {
+        $req=$db->prepare('INSERT INTO teams (name_team) VALUES (:NAME)');
+        $req->execute(array('NAME' => $nameTeam));
+        return $db->lastInsertId();
+    }
+
+    // Delete a team
+    function deleteTeam($idTeam,$db)
+    {
+        $req=$db->prepare('DELETE FROM TEAMS WHERE id_team=:TEAM');
+        $req->execute(array('TEAM' => $idTeam));
+    }
+
     // Retrieve all teams from a user
     function retrieveTeamsFromUser($idUser,$db)
     {

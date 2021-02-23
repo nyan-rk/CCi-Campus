@@ -1,3 +1,11 @@
+h2,p { display: inline; padding:0;margin:0} 
+
+/*Diag : error message */
+#notauthorized{
+    text-align:center;
+    margin:200px 0 200px 0;
+}
+
 /* Diag : presentation section*/
 #avacanvas{
     display:flex;
@@ -35,9 +43,10 @@ button{
     margin-top:20px;
 }
 
-/*.stack-header, .card{
-    background-color:var(--sheet-color);
-}*/
+#menubutton{
+    border-color:black;
+}
+
 .card{
     width: 18rem;margin-left:10px;border:0px;
     border-radius: 0 0 10px 10px;
@@ -200,4 +209,13 @@ button{
 	min-height: 0px;
 	width:288px!important;
 	min-width:288px!important;
+}
+
+@media (min-width: 768px){
+    #diag{
+        flex-wrap:wrap;
+    }
+    .colo{
+        margin-bottom: 50px;
+    }
 }

@@ -23,6 +23,9 @@ body{
 	--st1:#8dc2ce;
 }
 
+a, a:hover{
+    color:black;
+}
 
 /*Footer*/
 #logo_footer{

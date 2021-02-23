@@ -61,7 +61,14 @@ section ~ section, footer .container{
     border-radius:0 10px 10px 0;
     border: 5px solid;
     height: 100%;
+    padding: 0 5px 0 5px;
 }
+
+.gum-cardly .gum-cardly2{
+    display: flex;
+    align-items: center;
+}
+
 .gum-car-cardly .gum-cardly2{
     border-radius:0 0 10px 10px;
 }
@@ -141,6 +148,17 @@ section ~ section, footer .container{
 .splide__pagination__page.is-active{
     transform:none;
     background:black!important;
+}
+
+.fas{
+    font-size: 33px;
+    margin:0 0 6px 6px;
+    visibility: hidden;
+    cursor:pointer;
+}
+
+.teamheader:hover .fas{
+    visibility: visible;
 }
 
 /*Dashboard : button part*/

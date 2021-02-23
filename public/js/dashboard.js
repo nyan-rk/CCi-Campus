@@ -33,6 +33,96 @@ $(document).ready(function(){
         }
     }
 
+    // Add a member to a team - plus sign
+    $(".container").on("click",".fa-plus",function(){
+        $('#addMemberModal').modal('toggle');
+        $('#addMemberModal').val($(this).parent().next().attr('id').substring(5));
+      });
+    
+    // Add a member to a team
+    $("#addMemberModal").on("click",function(){
+        team=$('#addMemberModal').val();
+        memberName=$('#membername').val();
+        if(memberName.length>0){
+            $.ajax({
+                url: './controller/dashboardInteract.php',
+                type: 'post',
+                data: {mode: 3, user:$('#membername').val(), team:team, name:memberName},
+                success: function(data){
+                    console.log('Member added');
+                },
+                error: function(data){
+                  console.log('Member not added');
+                }
+              });
+            $('#membername').val('');
+            $('#addMemberModal').val('');
+            $('#addMemberModal').modal('toggle');
+        }
+    });
+
+    // Remove diags - cross sign
+    $(".container").on("click",".fa-times",function(){
+        $('#removeTeamModal').modal('toggle');
+        $('#removeTeamModal').val($(this).parent().next().attr('id').substring(5));
+      });
+
+    // Remove diags
+      $("#removeTeamButton").on("click",function(){
+        team=$('#removeTeamModal').val();
+        keep=$('input[name=removeChoice]:checked').val();
+        $.ajax({
+            url: './controller/dashboardInteract.php',
+            type: 'post',
+            data: {mode: 4, user:realuser, submode:keep, team:team},
+            success: function(data){            
+                if(keep==1){
+                    $('#team-'+team).prev().remove();
+                    $('#team-'+team).remove();
+                }
+                if(keep==2){
+                    $('#team-'+team).prev().remove();
+                    $('#team-0').append($('#team-'+team).children());
+                }
+                $('#teamList option[value="'+team+'"]').remove();
+                gumRecolor();
+                console.log('Team removed');
+                },
+                error: function(data){
+                console.log('Team not removed');
+            }
+        });
+        $('#removeTeamModal').modal('toggle');
+    });
+
+    // Quit team - exit sign
+    $(".container").on("click",".fa-sign-out-alt",function(){
+        $('#exitTeamModal').modal('toggle');
+        $('#exitTeamModal').val($(this).parent().next().attr('id').substring(5));
+      });
+
+    // Quit team - yes
+      $("#exitTeamYes").on("click",function(){
+        team=$('#exitTeamModal').val();
+        $.ajax({
+            url: './controller/dashboardInteract.php',
+            type: 'post',
+            data: {mode: 5, user:realuser, team:team},
+            success: function(data){            
+                $('#team-'+team).prev().remove();
+                $('#team-'+team).remove();
+                $('#teamList option[value="'+team+'"]').remove();
+                gumRecolor();
+                console.log('Exited from team');
+                },
+                error: function(data){
+                console.log('Not exited from team');
+            }
+        });
+        $('#exitTeamModal').modal('toggle');
+    });
+
+    // Create new project button
     $("#newProjectCreate").on("click",function(){
         teamId=$('#teamList').val();
         teamSelect='#team-'+teamId;
@@ -43,8 +133,9 @@ $(document).ready(function(){
             $.ajax({
                 url: './controller/dashboardInteract.php',
                 type: 'post',
-                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(), team:teamId},
+                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(),visi:$('#projectVisib').val(), team:teamId},
                 success: function(data){
+                    console.log("Tableau créé : "+data)
                     if($(teamSelect).find('.gum-cardly').length==0){
                         $(teamSelect).empty();
                     }
@@ -57,6 +148,28 @@ $(document).ready(function(){
                 }
               });
             $('#newProjectModal').modal('toggle');
+        }
+    });
+
+    // Create new team button
+    $("#newTeamCreate").on("click",function(){
+        teamName=$('#newteamname').val();
+        if(teamName.length>0){
+            $.ajax({
+                url: './controller/dashboardInteract.php',
+                type: 'post',
+                data: {mode: 2, user:realuser, name:teamName},
+                success: function(data){
+                    $('#teamTables').append("<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
+                    $('#teamList').append("<option value='"+data+"'>"+$('#newteamname').val()+"</option>");
+                    $('#newteamname').val('');
+                    console.log('Team created');
+                },
+                error: function(data){
+                  console.log('Team not created');
+                }
+              });
+            $('#newTeamModal').modal('toggle');
         }
     });
 })
