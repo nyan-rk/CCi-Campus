@@ -7,21 +7,21 @@ h2,p { display: inline; padding:0;margin:0}
 }
 
 /* Diag : presentation section*/
-#avacanvas{
-    display:flex;
-    justify-content:center;
+#avacanvas {
+  display: flex;
+  justify-content: center;
 }
 
-#avatar{
-    object-fit: cover;
-  border-radius:50%;
+#avatar {
+  object-fit: cover;
+  border-radius: 50%;
   width: 150px;
   height: 150px;
 }
 
-button{
-    padding:10px 10px 10px 10px;
-    border-radius:10px;
+button {
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 /* Diag : diagram section*/
@@ -38,9 +38,9 @@ button{
     bottom:0;
 }
 
-#diagcont{
-    position:relative;
-    margin-top:20px;
+#diagcont {
+  position: relative;
+  margin-top: 20px;
 }
 
 #menubutton{
@@ -52,24 +52,24 @@ button{
     border-radius: 0 0 10px 10px;
 }
 
-.card ul{
-    padding:10px 10px 5px 10px;
+.card ul {
+  padding: 10px 10px 5px 10px;
 }
 
-.card input{
-    margin: 0 10px 10px 10px;
+.card input {
+  margin: 0 10px 10px 10px;
 }
 
-.color1{
-    fill:var(--cardlyblue1);
+.color1 {
+  fill: var(--cardlyblue1);
 }
 
-.color1 .stack-header{
-    background-color:var(--cardlyblue1);
+.color1 .stack-header {
+  background-color: var(--cardlyblue1);
 }
 
-.color1 .card{
-    background-color:var(--cardlyblue1sub);
+.color1 .card {
+  background-color: var(--cardlyblue1sub);
 }
 
 .color2{
@@ -96,67 +96,68 @@ button{
     background-color:var(--cardlygreensub);
 }
 
-.color4{
-    fill:var(--cardlypink);
+.color4 {
+  fill: var(--cardlypink);
 }
 
-.color4 .stack-header{
-    background-color:var(--cardlypink);
+.color4 .stack-header {
+  background-color: var(--cardlypink);
 }
 
-.color4 .card{
-    background-color:var(--cardlypinksub);
+.color4 .card {
+  background-color: var(--cardlypinksub);
 }
 
-.noteholes{
-    margin-left: 10px;
+.noteholes {
+  margin-left: 10px;
 }
 
-.stack-header{
-    font-size:1.25rem;
-    font-family: 'Architects Daughter', cursive;
-    font-weight: bold;
-    color:white;
-    border-bottom:0;
-    text-align:center;
+.stack-header {
+  font-size: 1.25rem;
+  font-family: "Architects Daughter", cursive;
+  font-weight: bold;
+  color: white;
+  border-bottom: 0;
+  text-align: center;
 }
 
-.stack-header:first-child{
-    border-radius:0;
+.stack-header:first-child {
+  border-radius: 0;
 }
 
-.list-group-item:last-child{
-    border-bottom-right-radius: 10px!important;
-    border-bottom-left-radius: 10px!important;
+.list-group-item:last-child {
+  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
 }
 
-.task ~ .task, .newTask{
-    margin-top:5px;
+.task ~ .task,
+.newTask {
+  margin-top: 5px;
 }
 
-.task{
-    border-radius:10px;
+.task {
+  border-radius: 10px;
 }
 
-.colnew{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10px 0 10px;
+.colnew {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
-.colo{
-    position:relative;
+.colo {
+  position: relative;
 }
 
-.colo:hover > .closeTask{
-    visibility: visible;
-    top:20px;
-    right:20px;
+.colo:hover > .closeTask {
+  visibility: visible;
+  top: 20px;
+  right: 20px;
 }
 
-.task:hover .closeTask{
-    visibility: visible;
+.task:hover .closeTask {
+  visibility: visible;
 }
 
 .closeTask{
@@ -179,30 +180,34 @@ button{
     width: 268px;
 }
 
-#newStackButton{
-    transition: transform .2s;
-    cursor:pointer;
+#newStackButton {
+  transition: transform 0.2s;
+  cursor: pointer;
 }
 
-#newStackButton:hover{
-    transform: scale(1.2);
+#newStackButton:hover {
+  transform: scale(1.2);
 }
 
-.ui-state-highlight-colo, .ui-state-highlight-row{
-	box-sizing: content-box;
-	background: linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%);
+.ui-state-highlight-colo,
+.ui-state-highlight-row {
+  box-sizing: content-box;
+  background: linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%);
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
-    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
-    border-radius: 10px;
-    padding: 10px;
-    animation: dash 5s linear infinite;
+  background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+  border-radius: 10px;
+  padding: 10px;
+  animation: dash 5s linear infinite;
 }
 
 @keyframes dash {
-    to {
-        background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
-    }
+  to {
+    background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+  }
 }
 
 .ui-state-highlight-colo{

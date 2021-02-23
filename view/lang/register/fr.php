@@ -1,0 +1,3 @@
+<?php
+
+$title = "Register page";

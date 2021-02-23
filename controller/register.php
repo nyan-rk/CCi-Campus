@@ -2,50 +2,51 @@
 
 require '../model/connexion_bdd_ajax.php';
 
-$nickname = $_POST['nickname'];
-$email = $_POST['email'];
-$password = $_POST['password'];
+$nicknameUser = htmlspecialchars($_POST['nickname']);
+$mailUser = htmlspecialchars($_POST['email']);
+$passwordUser = htmlspecialchars($_POST['password']);
 
 
-//SQL request => insert into users
-$ru = $bdd->query("INSERT INTO user (nickname_user, mail_user, pass_user) VALUES ('$nickname', '$email', '$password')");
+//$passwordUser hashed by password_default algo
+$hashedPassword = password_hash($passwordUser, PASSWORD_DEFAULT);
 
-//condition if false
-if ($ru === false) {
-    echo $bdd->errorInfo()[2];
+//verify if $nicknameUser and $mailUser exists in $bdd
+$sql = $bdd->prepare('SELECT EXISTS (SELECT * FROM user WHERE mail_user = :MAIL) AS mail_exist, EXISTS (SELECT * FROM user WHERE nickname_user = :NICKNAME) AS nickname_exist;');
+
+//execute $sql
+$sql->execute([
+    'MAIL' => $mailUser,
+    'NICKNAME' => $nicknameUser,
+]);
+
+//catch $sql result
+$result = $sql->fetch();
+
+//check if user already exists
+if ($result['mail_exist'] == 1 or $result['nickname_exist'] == 1) {
+
+    //redirect to register
+    header('Location: http://cardly/register.php'); //header("location:" .  $_SERVER['HTTP_REFERER']);
+
     exit();
-};
-
-// fetch data from $ru
-$ru->fetchAll(PDO::FETCH_ASSOC);
-
-
-// Vérifier si le nom existe / mdp existe / mail existe / format mail existe
-
-//check login
-if($email === $user[0]['mail_user'] and $_POST['password'] === $user[0]['pass_user']) 
-{ 
-    $_SESSION ['id'] = $user['id_user'] ; // logged
-    header('Location: ../accueil'); // redirect index.php 
-
 } else {
-    header('Location: ../index.php');
+    //insert into user values
+    $db = $bdd->prepare('INSERT INTO user (nickname_user, mail_user, pass_user) VALUES (:NICKNAME, :MAIL, :PASS)');
 
-    if( $_POST['email'] != $user[0]['mail_user'] and $_POST['password'] != $user[0]['pass_user']){
-        $_SESSION['errors'] = [
-            'Email not valid',
-            'Password not valid'
-        ];
+    //execute request
+    $db->execute([
+        'NICKNAME' => $nicknameUser,
+        'MAIL' => $mailUser,
+        'PASS' => $hashedPassword
+    ]);
 
-    } elseif ($_POST['email'] != $user['mail_user']){
-        $_SESSION['errors'] =[
-            'Email not valid'
-        ];
+    //start session 
+    session_start();
 
-    } else {
-        $_SESSION['errors'] =[
-            'Password not valid'
-        ];
+    //assign lastInsertID to id_user session and open session[id_user]
+    $_SESSION['id_user'] = $bdd->lastInsertId();
 
-    }
+    //redirect to dashbord page
+    header("Location: ../dashboard.php");
+    exit();
 }

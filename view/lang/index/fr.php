@@ -1,5 +1,3 @@
 <?php
 
-$title = 0;
-
-?>
+$title = "Accueil page";
