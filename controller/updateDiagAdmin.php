@@ -9,8 +9,11 @@
     11 : Change diag creator/owner
     12 : Change diag visibility
     */
-    
-    // Future verification of access
+    $checky=isInTeamOrCreator(htmlspecialchars($_POST['user']),htmlspecialchars($_POST['diag']),$bdd);
+    $checkyMacCheckington=$checky->fetch();
+
+    // Check of permission
+    if($checkyMacCheckington['is_creator']==1)
     {
 
         // 9 : Delete diag
