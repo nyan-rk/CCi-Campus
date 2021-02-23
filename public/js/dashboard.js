@@ -132,12 +132,13 @@ $(document).ready(function(){
         teamSelect='#team-'+teamId;
         console.log(teamSelect);
         projectName=$('#projectname').val();
-        console.log($(teamSelect).find('.gum-cardly').length);
-        if(projectName.length>0){
+        projectDesc=$('#projectdesc').val();
+        if(projectName.length>0 && projectDesc.length>0){
+            console.log(realuser+' '+$('#projectname').val()+' '+teamId+' '+$('#projectVisib').val()+' '+$('#projectdesc'));
             $.ajax({
                 url: './controller/dashboardInteract.php',
                 type: 'post',
-                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(),visi:$('#projectVisib').val(), team:teamId},
+                data: {mode: 1, user:realuser, name:projectName, desc:projectDesc,visi:$('#projectVisib').val(), team:teamId},
                 success: function(data){
                     console.log("Tableau créé : "+data)
                     if($(teamSelect).find('.gum-cardly').length==0){
