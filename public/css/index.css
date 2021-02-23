@@ -1,0 +1,30 @@
+footer .row>* {
+    width: auto!important;
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
+
+#ancre {
+    border-top: 2px solid #b6b5b6;
+}
+
+#border-top {
+    border-top: 2px solid #b6b5b6;    
+}
+
+.card-img-top {
+    width: 75px;
+    height: 75px;
+    padding-top: 10px;
+}
+
+#avatar img {
+    width: 300px;
+    height: 300px;
+    border-radius: 200px;
+}
+
+#picto img {
+    object-fit: cover;
+    width: 50%;
+}
