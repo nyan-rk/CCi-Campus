@@ -2,10 +2,7 @@
     <div class="container">
         <!-- Carroussel of last 3 tables seen -->
         <section>
-            <div class="col" style="text-align:center">
-                <?php echo "<h2>".DASH['intro1']."</h2>".DASH['intro2'] ?>
-            </div>
-            <?php  
+            <?php
                 showCaroussel($_SESSION['id_user'],$bdd);
             ?>
         </section>

@@ -1,5 +1,5 @@
 <?php
-    //$_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
+    $_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
     if ((isset($_SESSION['id_user'])!=true))
     {
         header('Location: ../index.php');
@@ -31,6 +31,11 @@
     // Display of last 3 diags seen
     function showCaroussel($idUser,$db)
     {
+        // Intro text
+        echo' <div class="col" style="text-align:center">
+                <h2>'.DASH['intro1'].'</h2>'.DASH['intro2'].'
+            </div>';
+        // Adding the caroussel
         echo "<div id='caroussel' class='col splide' style='margin: 20px auto 0 auto'><div class='splide__track'><div class='splide__list'>";
         $count=0;
         $cardiag=retrieveLastThreeDiagSeen($idUser, $db);
@@ -113,17 +118,16 @@
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
                     <div class='modal-header'>
-                        <h5 class='modal-title'>Supprimer l'équipe ?</h5>
+                        <h5 class='modal-title'>".DASH['removeteam']."</h5>
                     </div>
-                    <div class='modal-body'>
-                        Que faire des tableaux ?<br>
+                    <div class='modal-body'>".DASH['removeteambody']."<br>
                         <input type='radio' id='removeChoice1' name='removeChoice' value='1'>
-                        <label for='removeChoice1'>Supprimer les tableaux de l'équipe</label>
+                        <label for='removeChoice1'>".DASH['removeteam1']."</label>
                         <input type='radio' id='removeChoice2' name='removeChoice' value='2'>
-                        <label for='removeChoice1'>Mettre les tableaux de l'équipe dans mes tableaux personels</label>
+                        <label for='removeChoice1'>".DASH['removeteam2']."</label>
                     </div>
                     <div class='modal-footer'>
-                        <button type='button' id='removeTeamButton' class='btn btn-primary'>Supprimer</button>
+                        <button type='button' id='removeTeamButton' class='btn btn-primary'>".DASH['removeteambutton']."</button>
                     </div>
                 </div>
             </div>
@@ -133,14 +137,13 @@
             <div class='modal-dialog modal-dialog-centered' role='document'>
                 <div class='modal-content'>
                     <div class='modal-header'>
-                        <h5 class='modal-title'>Quitter l'équipe ?</h5>
+                        <h5 class='modal-title'>".DASH['quitteam']."</h5>
                     </div>
-                    <div class='modal-body'>
-                        Souhaitez-vous RÉELLEMENT quitter cette équipe ?
+                    <div class='modal-body'>".DASH['quitteambody']."
                     </div>
                     <div class='modal-footer'>
-                        <button type='button' id='exitTeamYes' class='btn btn-primary'>Oui</button>
-                        <button type='button' id='exitTeamNo' class='btn btn-primary'>Non</button>
+                        <button type='button' id='exitTeamYes' class='btn btn-primary'>".DASH['quitteamyes']."</button>
+                        <button type='button' id='exitTeamNo' class='btn btn-primary'>".DASH['quitteamno']."</button>
                     </div>
                 </div>
             </div>
