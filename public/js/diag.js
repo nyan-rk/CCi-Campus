@@ -37,9 +37,7 @@ $(document).ready(function(){
        });
        this.classList.add("color"+(($(this).index())%4+1));
       }
-      //else console.log("dernier fils"); // "this" is the current element in the loop
     });
-    //console.log("Fonction recolor appelée");
   }
   
   // Function to reapply the event to newly created tasks
@@ -49,7 +47,6 @@ $(document).ready(function(){
       placeholder: "ui-state-highlight-row",
       start: function(e, ui) {
         $(ui.item).attr('data-previndex', ui.item.index()+1);
-        /*console.log($(ui.item).attr('data-previndex'));*/
         $(ui.item).attr('data-previndcol',$(ui.item).parent().parent().parent().index()+1);
       },
       update: function( event, ui ) {
@@ -61,7 +58,7 @@ $(document).ready(function(){
         $.ajax({
           url: './controller/updateDiag.php',
           type: 'post',
-          data: {mode: 7, oldpos:oldpos, oldcol:oldcol, newpos:newpos, newcol:newcol, diag:idDiag},
+          data: {mode: 7,user:realuser, oldpos:oldpos, oldcol:oldcol, newpos:newpos, newcol:newcol, diag:idDiag},
           success: function(data){
             console.log('Task moved');
           },
@@ -82,6 +79,7 @@ $(document).ready(function(){
 		  connectWith: "#diag",
 		  items:".colo:not(.colnew)",
 		  placeholder: "ui-state-highlight-colo",
+      tolerance:"pointer",
 		  start: function(e, ui) {
 			$(this).attr('data-previndex', ui.item.index()+1);
     },
@@ -93,7 +91,7 @@ $(document).ready(function(){
         $.ajax({
           url: './controller/updateDiag.php',
           type: 'post',
-          data: {mode: 8, oldpos:oldposi, newpos:newposi, diag:idDiag},
+          data: {mode: 8, user:realuser,oldpos:oldposi, newpos:newposi, diag:idDiag},
           success: function(data){
             console.log('Stack moved');
           },
@@ -124,7 +122,7 @@ $(document).ready(function(){
       $.ajax({
         url: './controller/updateDiag.php',
         type: 'post',
-        data: {mode: 1, title:this.value, diag:idDiag},
+        data: {mode: 1, title:this.value,user:realuser, diag:idDiag},
         success: function(data){
           $(document).prop('title', 'Cardly - '+$('#diagTitle').text());
           console.log('Title changed');
@@ -149,7 +147,7 @@ $(document).ready(function(){
       $.ajax({
         url: './controller/updateDiag.php',
         type: 'post',
-        data: {mode: 2, text:this.value, diag:idDiag},
+        data: {mode: 2, text:this.value,user:realuser, diag:idDiag},
         success: function(data){
           console.log('Desc changed');
         },
@@ -284,20 +282,18 @@ $(document).ready(function(){
     if($parent.classList.contains('colo')){
       $mode=6;
       $stack=$(this).parent().index()+1;
-      //console.log("Stack removed " +$stack);
     }
     if($parent.classList.contains('task')){
       $mode=5;
       $task=$(this).parent().index()+1;
-      $stack=$(this).parent().parent().parent().parent().index()+1
-      //console.log("Task removed "+$task+" from column "+$stack);
+      $stack=$(this).parent().parent().parent().parent().index()+1;
     }
     $(this).parent().hide();
     $(this).parent().remove();
     $.ajax({
       url: './controller/updateDiag.php',
       type: 'post',
-      data: {mode: $mode, task:$task, stack:$stack, diag:idDiag},
+      data: {mode: $mode, user:realuser, task:$task, stack:$stack, diag:idDiag},
       success: function(data){
         if($mode==5)
         console.log("Task "+$task+" removed from column "+$stack);
@@ -335,7 +331,7 @@ $(document).ready(function(){
         $.ajax({
           url: './controller/updateDiag.php',
           type: 'post',
-          data: {mode: 3, text:this.value, diag:idDiag, col:col, pos:$(newTask).index()+1},
+          data: {mode: 3, user:realuser, text:this.value, diag:idDiag, col:col, pos:$(newTask).index()+1},
           success: function(data){
             console.log('Task added '+($(newTask).index()+1));
           },
@@ -370,7 +366,7 @@ $(document).ready(function(){
         $.ajax({
           url: './controller/updateDiag.php',
           type: 'post',
-          data: {mode: 4, text:this.value, diag:idDiag, col:currentCol},
+          data: {mode: 4,user:realuser, text:this.value, diag:idDiag, col:currentCol},
           success: function(data){
             console.log('Stack added');
           },
