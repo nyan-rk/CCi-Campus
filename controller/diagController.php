@@ -24,7 +24,7 @@
         }
         // Non-personal diag case
         else if ($idUser!=0){
-            $isIn=isInTeam($idUser,$idTeam, $db);
+            $isIn=isInTeamID($idUser,$idTeam, $db);
             $letsCheck=$isIn->fetch();
             // if in team
             if($letsCheck['I_exist']==1) return 2 ;

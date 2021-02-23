@@ -10,12 +10,23 @@
         ));
     }
 
-    //Check if a member is in a team
+    //Check if a member is in a team based on its name
     function isInTeam($nameUser, $idTeam, $db)
     {
         $req=$db->prepare('SELECT EXISTS (SELECT * FROM user as u inner join team_affiliation as t on u.id_user=t.id_user WHERE u.nickname_user=:NAME and t.id_team=:TEAM) as I_exist');
         $req->execute(array(
             'NAME' => $nameUser,
+            'TEAM' => $idTeam
+        ));
+        return $req;
+    }
+
+    //Check if a member is in a team based on its name
+    function isInTeamID($idUser, $idTeam, $db)
+    {
+        $req=$db->prepare('SELECT EXISTS (SELECT * FROM user as u inner join team_affiliation as t on u.id_user=t.id_user WHERE u.id_user=:USER and t.id_team=:TEAM) as I_exist');
+        $req->execute(array(
+            'USER' => $idUser,
             'TEAM' => $idTeam
         ));
         return $req;
