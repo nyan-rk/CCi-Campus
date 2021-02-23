@@ -1,7 +1,7 @@
 <?php
     $req=retrieveDiag(htmlspecialchars($_GET['d']),$bdd);
     $resultat = $req->fetch();
-    $_SESSION['id_user']=1;
+    //$_SESSION['id_user']=1;
     $user=(isset($_SESSION['id_user'])?$_SESSION['id_user']:0);
     $perm=canSee($_GET['d'],$resultat['vis_diag'],$resultat['team_affili'],$user,$resultat["id_creator"],$bdd);
 

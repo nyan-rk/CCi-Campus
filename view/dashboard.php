@@ -1,13 +1,4 @@
 <body>
-    <?php 
-        $_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
-        $_SESSION['is_connected']=(isset($_SESSION['is_connected'])?$_SESSION['is_connected']:true);
-        if ((isset($_SESSION['id_user'])!=true)OR((isset($_SESSION['is_connected']))!=true))
-		{
-			header('Location: ../index.php');
-            exit();
-		}
-        $gums=0;?>
     <div class="container">
         <!-- Carroussel of last 3 tables seen -->
         <section>

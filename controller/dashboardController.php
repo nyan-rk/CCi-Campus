@@ -1,5 +1,13 @@
 <?php
 
+    //$_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
+    if ((isset($_SESSION['id_user'])!=true))
+    {
+        header('Location: ../index.php');
+        exit();
+    }
+    $gums=0;
+    
     // Gum creator for the diags
     function gumCreator($idDiag,$diagTitle,$diagDesc,&$gums)
     {
