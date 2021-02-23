@@ -28,5 +28,4 @@
         else if (in_array($nomPage,array("index"))) require "./view/footerother.php";
             else require "./view/footer.php";
     }
-
 ?>
