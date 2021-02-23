@@ -11,6 +11,20 @@ define("DASH", [
     'noteam' => 'Aucun tableau d\'équipe à afficher. Pourquoi ne pas en créer ou en rejoindre une ?',
     'nothisteam' => 'Aucun tableau à afficher pour cette équipe.',
 
+    // Months
+    'january' => 'janvier',
+    'february' => 'février',
+    'march' => 'mars',
+    'april' => 'avril',
+    'may' => 'mai',
+    'june' => 'juin',
+    'july' => 'juillet',
+    'august' => 'août',
+    'september' => 'septembre',
+    'october' => 'octobre',
+    'november' => 'november',
+    'december' => 'décembre',
+
     //Add member modal
     'addmember' => 'Ajouter un membre à l\'équipe',
     'membername'=> 'Nom du membre à ajouter',

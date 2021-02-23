@@ -7,6 +7,30 @@
     }
     $gums=0;
 
+    // Date conversion function. Credit to mack11 for the original version
+    function convertDate($date)
+    {
+        $year = substr($date, 6, 4);
+        $month = substr($date, 3, 2);
+        $day = substr($date, 0, 2);
+        if($month == 1) $month = DASH['january'];
+        if($month == 2) $month = DASH['february'];
+        if($month == 3) $month = DASH['march'];
+        if($month == 4) $month = DASH['april'];
+        if($month == 5) $month = DASH['may'];
+        if($month == 6) $month = DASH['june'];
+        if($month == 7) $month = DASH['july'];
+        if($month == 8) $month = DASH['august'];
+        if($month == 9) $month = DASH['september'];
+        if($month == 10) $month = DASH['october'];
+        if($month == 11) $month = DASH['november'];
+        if($month == 12) $month = DASH['december'];
+        if($_SESSION['lang']=='fr')
+            return $day." ".$month." ".$year ;
+        else if($_SESSION['lang']=='en')
+        return $month." ".$day.", ".$year ;
+    }
+
     // Gum creator for the diags
     function gumCreator($idDiag,$diagTitle,$diagDesc,&$gums)
     {
@@ -18,13 +42,13 @@
         $gums++;
     }
     // Caroussel creator
-    function gumCarCreator($idDiag,$diagTitle,$diagDesc,&$gums)
+    function gumCarCreator($idDiag,$diagTitle,$diagDesc,$lastModif,&$gums)
     {
         echo "<div class='splide__slide gum-car-cardly gumcolor".(($gums)%5 + 1)."'>
         <div class='gum-cardly1'>
             <img draggable='false'";
         echo (file_exists('./upload/diagmin/'.$idDiag.'.jpg'))?"src='./upload/diagmin/".$idDiag.".jpg' >":"src='./upload/diagmin/0.jpg' >";
-        echo "</div><div class='gum-cardly2'>".$diagDesc."</div></div>";
+        echo "</div><div class='gum-cardly2'><div>".convertDate($lastModif)."<br><p>".$diagDesc."</p></div><a href='./diag.php?d=".$idDiag."'><strong>Poursuivre</strong></a></div></div>";
         $gums++;
     }
 
@@ -40,8 +64,7 @@
         $count=0;
         $cardiag=retrieveLastThreeDiagSeen($idUser, $db);
         while($tabs = $cardiag->fetch()){
-            //echo $tabs['name_diag'];
-            gumCarCreator($tabs['id_diag'],$tabs['name_diag'],$tabs['desc_diag'],$gums);
+            gumCarCreator($tabs['id_diag'],$tabs['name_diag'],$tabs['desc_diag'],$tabs['last_modif'],$gums);
             $count++;
         }
         while($count<3){
@@ -77,15 +100,15 @@
         echo "<div class='col' style='text-align:center'><h2>".DASH['team']."</h2>".DASH['teamsub']."</div>";
         $myTeams=retrieveTeamsFromUser($idUser,$db);
         if ($myTeams->rowCount()==null)
-        echo "<br>".DASH['noteam'];
+        echo "<br><p id='noTeam' style='margin-top:20px'>".DASH['noteam']."</p>";
         else{
             while($teams = $myTeams->fetch()){
                 echo "<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>".$teams['name_team']."</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div>";
                 $teamDiags=retrieveDiagFromTeam($teams['id_team'],$db);
                 if ($teamDiags->rowCount()==null)
-                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>".DASH['nothisteam']."</div>";
+                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px; margin-bottom:20px'>".DASH['nothisteam']."</div>";
                 else{
-                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px'>";
+                    echo "<div class='row' id='team-".$teams['id_team']."' style='margin-top:20px;margin-bottom:20px'>";
                     while($tabs = $teamDiags->fetch()){
                     gumCreator($tabs['id_diag'],$tabs['name_diag'],$tabs['desc_diag'],$gums);
                     }
