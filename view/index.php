@@ -1,26 +1,28 @@
+<?php
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View login</title>
-</head>
-    <body>
+//check if user is connected
+if (isset($_SESSION['id_user'])) {
+    header('Location: dashboard.php');
+    exit();
+};
 
-        <form action="controller/login.php" method="POST">
+?>
 
-            <label>Login</label>
+<body>
 
-            <br>
+    <h1>Cardly</h1>
 
-            <input type="text" name="email">
-            <input type="password" name="password">
+    <br>
 
-            <br>
+    <a href="index.php">Accueil</a>
 
-            <input type="submit" value="Envoyer">
-        </form>
+    <br>
 
-    </body>
-</html>
+    <a href="login.php">Connexion</a>
+
+    <br>
+
+    <a href="register.php">Inscription</a>
+
+
+</body>

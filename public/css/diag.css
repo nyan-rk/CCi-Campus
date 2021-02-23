@@ -1,219 +1,226 @@
-:root{
-    --sheet-color:#D7D4CD;
-    --cardlyblue1:#5CB1FF;
-    --cardlyblue1sub:#D6EBFF;
-    --cardlyblue2:#6176F9;
-    --cardlyblue2sub:#D7DDFD;
-    --cardlypurple:#A48FFE;
-    --cardlypurplesub:#E8E3FF;
-    --cardlypink:#D877C3;
-    --cardlypinksub:#F5DDF0;
-    --cardlypinkplus:#FFA382;
+:root {
+  --sheet-color: #d7d4cd;
+  --cardlyblue1: #5cb1ff;
+  --cardlyblue1sub: #d6ebff;
+  --cardlyblue2: #6176f9;
+  --cardlyblue2sub: #d7ddfd;
+  --cardlypurple: #a48ffe;
+  --cardlypurplesub: #e8e3ff;
+  --cardlypink: #d877c3;
+  --cardlypinksub: #f5ddf0;
+  --cardlypinkplus: #ffa382;
 }
 
-body{
-    overflow-X:hidden;
+body {
+  overflow-x: hidden;
 }
 
-#logo_cardly{
-	--st0:#6e6e6d;
-	--st1:#8dc2ce;
+#logo_cardly {
+  --st0: #6e6e6d;
+  --st1: #8dc2ce;
 }
 
 /* Diag : presentation section*/
-#avacanvas{
-    display:flex;
-    justify-content:center;
+#avacanvas {
+  display: flex;
+  justify-content: center;
 }
 
-#avatar{
-    object-fit: cover;
-  border-radius:50%;
+#avatar {
+  object-fit: cover;
+  border-radius: 50%;
   width: 150px;
   height: 150px;
 }
 
-button{
-    padding:10px 10px 10px 10px;
-    border-radius:10px;
+button {
+  padding: 10px 10px 10px 10px;
+  border-radius: 10px;
 }
 
 /* Diag : diagram section*/
-#diag{
-    flex-wrap:nowrap;
-    overflow-X:scroll;
-	-webkit-overflow-scrolling: touch;
-    height: calc(100vh - 325px); 
-	bottom:0;
-    position: absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
+#diag {
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  height: calc(100vh - 325px);
+  bottom: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-#diagcont{
-    position:relative;
-    margin-top:20px;
+#diagcont {
+  position: relative;
+  margin-top: 20px;
 }
 
 /*.stack-header, .card{
     background-color:var(--sheet-color);
 }*/
-.card{
-    width: 18rem;margin-left:10px;border:0px;
-    border-radius: 0 0 10px 10px;
+.card {
+  width: 18rem;
+  margin-left: 10px;
+  border: 0px;
+  border-radius: 0 0 10px 10px;
 }
 
-.card ul{
-    padding:10px 10px 5px 10px;
+.card ul {
+  padding: 10px 10px 5px 10px;
 }
 
-.card input{
-    margin: 0 10px 10px 10px;
+.card input {
+  margin: 0 10px 10px 10px;
 }
 
-.color1{
-    fill:var(--cardlyblue1);
+.color1 {
+  fill: var(--cardlyblue1);
 }
 
-.color1 .stack-header{
-    background-color:var(--cardlyblue1);
+.color1 .stack-header {
+  background-color: var(--cardlyblue1);
 }
 
-.color1 .card{
-    background-color:var(--cardlyblue1sub);
+.color1 .card {
+  background-color: var(--cardlyblue1sub);
 }
 
-.color2{
-    fill:var(--cardlyblue2);
+.color2 {
+  fill: var(--cardlyblue2);
 }
 
-.color2 .stack-header{
-    background-color:var(--cardlyblue2);
+.color2 .stack-header {
+  background-color: var(--cardlyblue2);
 }
 
-.color2 .card{
-    background-color:var(--cardlyblue2sub);
+.color2 .card {
+  background-color: var(--cardlyblue2sub);
 }
 
-.color3{
-    fill:var(--cardlypurple);
+.color3 {
+  fill: var(--cardlypurple);
 }
 
-.color3 .stack-header{
-    background-color:var(--cardlypurple);
+.color3 .stack-header {
+  background-color: var(--cardlypurple);
 }
 
-.color3 .card{
-    background-color:var(--cardlypurplesub);
+.color3 .card {
+  background-color: var(--cardlypurplesub);
 }
 
-.color4{
-    fill:var(--cardlypink);
+.color4 {
+  fill: var(--cardlypink);
 }
 
-.color4 .stack-header{
-    background-color:var(--cardlypink);
+.color4 .stack-header {
+  background-color: var(--cardlypink);
 }
 
-.color4 .card{
-    background-color:var(--cardlypinksub);
+.color4 .card {
+  background-color: var(--cardlypinksub);
 }
 
-.noteholes{
-    margin-left: 10px;
+.noteholes {
+  margin-left: 10px;
 }
 
-.stack-header{
-    font-size:1.25rem;
-    font-family: 'Architects Daughter', cursive;
-    font-weight: bold;
-    color:white;
-    border-bottom:0;
-    text-align:center;
+.stack-header {
+  font-size: 1.25rem;
+  font-family: "Architects Daughter", cursive;
+  font-weight: bold;
+  color: white;
+  border-bottom: 0;
+  text-align: center;
 }
 
-.stack-header:first-child{
-    border-radius:0;
+.stack-header:first-child {
+  border-radius: 0;
 }
 
-.list-group-item:last-child{
-    border-bottom-right-radius: 10px!important;
-    border-bottom-left-radius: 10px!important;
+.list-group-item:last-child {
+  border-bottom-right-radius: 10px !important;
+  border-bottom-left-radius: 10px !important;
 }
 
-.task ~ .task, .newTask{
-    margin-top:5px;
+.task ~ .task,
+.newTask {
+  margin-top: 5px;
 }
 
-.task{
-    border-radius:10px;
+.task {
+  border-radius: 10px;
 }
 
-.colnew{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 0 10px 0 10px;
+.colnew {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
-.colo{
-    position:relative;
+.colo {
+  position: relative;
 }
 
-.colo:hover > .closeTask{
-    visibility: visible;
-    top:20px;
-    right:20px;
+.colo:hover > .closeTask {
+  visibility: visible;
+  top: 20px;
+  right: 20px;
 }
 
-.task:hover .closeTask{
-    visibility: visible;
+.task:hover .closeTask {
+  visibility: visible;
 }
 
-.closeTask{
-    position:absolute;
-    visibility: hidden;
-    top:0;
-    right:20px;
-    z-index:9999;
-    cursor:pointer;
+.closeTask {
+  position: absolute;
+  visibility: hidden;
+  top: 0;
+  right: 20px;
+  z-index: 9999;
+  cursor: pointer;
 }
 
-.newStack{
-    margin-left:10px;
-    width: 268px;
+.newStack {
+  margin-left: 10px;
+  width: 268px;
 }
 
-#newStackButton{
-    transition: transform .2s;
-    cursor:pointer;
+#newStackButton {
+  transition: transform 0.2s;
+  cursor: pointer;
 }
 
-#newStackButton:hover{
-    transform: scale(1.2);
+#newStackButton:hover {
+  transform: scale(1.2);
 }
 
-.ui-state-highlight-colo, .ui-state-highlight-row{
-	box-sizing: content-box;
-	background: linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%), linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%);
+.ui-state-highlight-colo,
+.ui-state-highlight-row {
+  box-sizing: content-box;
+  background: linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(90deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%),
+    linear-gradient(0deg, var(--cardlyblue1) 50%, transparent 50%);
   background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
   background-size: 16px 4px, 16px 4px, 4px 16px, 4px 16px;
-    background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
-    border-radius: 10px;
-    padding: 10px;
-    animation: dash 5s linear infinite;
+  background-position: 0% 0%, 100% 100%, 0% 100%, 100% 0px;
+  border-radius: 10px;
+  padding: 10px;
+  animation: dash 5s linear infinite;
 }
 
 @keyframes dash {
-    to {
-        background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
-    }
+  to {
+    background-position: 100% 0%, 0% 100%, 0% 0%, 100% 100%;
+  }
 }
 
-.ui-state-highlight-colo{
-	min-height: 0px;
-	width:288px!important;
-	min-width:288px!important;
+.ui-state-highlight-colo {
+  min-height: 0px;
+  width: 288px !important;
+  min-width: 288px !important;
 }
