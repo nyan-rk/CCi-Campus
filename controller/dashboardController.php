@@ -1,5 +1,5 @@
 <?php
-    $_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
+    //$_SESSION['id_user']=(isset($_SESSION['id_user'])?$_SESSION['id_user']:1);
     if ((isset($_SESSION['id_user'])!=true))
     {
         header('Location: ../index.php');
