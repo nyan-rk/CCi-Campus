@@ -11,6 +11,20 @@ define("DASH", [
     'noteam' => 'No team board to display. Why not create or join one?',
     'nothisteam' => 'No board to display for this team.',
 
+    // Months
+    'january' => 'January',
+    'february' => 'February',
+    'march' => 'March',
+    'april' => 'April',
+    'may' => 'May',
+    'june' => 'June',
+    'july' => 'July',
+    'august' => 'August',
+    'september' => 'September',
+    'october' => 'October',
+    'november' => 'November',
+    'december' => 'December',
+
     //Add member modal
     'addmember' => 'Add a member to the team',
     'membername'=> 'Name of the member to add',

@@ -69,9 +69,25 @@ section ~ section, footer .container{
     align-items: center;
 }
 
+.gum-car-cardly .gum-cardly1{
+    min-height: 152px!important;
+}
+
 .gum-car-cardly .gum-cardly2{
     border-radius:0 0 10px 10px;
+    padding : 10px 10px 10px 10px;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:justify;
+    color:#BBB7B7;
 }
+
+.gum-car-cardly .gum-cardly2 p{
+    color:black;
+    text-overflow: ellipsis;
+}
+
 .gumcolor0{
     background-color:#6e6e6d;
 }
