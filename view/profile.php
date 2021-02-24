@@ -1,7 +1,7 @@
-
 <body>
 
 <?php
+  // Recovers data of the logged-in user 
   $_SESSION['id_user'] = 1;
   $reponse = $bdd->prepare('SELECT * FROM user WHERE id_user=:USER');
   $reponse->execute(array('USER' => $_SESSION['id_user']));
@@ -29,8 +29,7 @@
       <div id="gray" class="col-md py-5 mx-1 mt-3 rounded">
         <label for="name">Courriel </label>
         <br><br>
-        <?php echo $donnees['mail_user'] . '<br />';?>
-        <br><br>
+        <?php echo $donnees['mail_user'];?>
       </div>
 
       <!--------------- Nick name part --------------->
@@ -58,7 +57,8 @@
               <br><br>
               <div class="form-group">
                 <select name="gender_user" class="form-control">
-                    <option value="1" <?php if ($donnees['gender_user'] == 1) echo "selected"; ?>>Homme</option>
+                    <!-- Displays the gender according to the choice made -->
+                    <option value="1" <?php if ($donnees['gender_user'] == 1) echo "selected"; ?>>Homme</option> 
                     <option value="2" <?php if ($donnees['gender_user'] == 2) echo "selected"; ?>>Femme</option>
                     <option value="3" <?php if ($donnees['gender_user'] == 3) echo "selected"; ?>>Autre</option>
                   </option>

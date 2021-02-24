@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="col-sm py-5 my-auto">
-          <img src="../public/images/index/imageheader.svg" alt="Header image">
+          <img src="../public/images/index/background.svg" alt="Header image">
         </div>
       </div>
     </div>
@@ -238,7 +238,7 @@
       <p>Lance-toi et rejoins notre communauté afin de découvrir toutes les fonctionnalités mises à ta disposition. </p>
     </div>
 
-    <div class="row text-center py-3 col-md-6 mx-auto">
+    <div class="row text-center py-3 col-md-6 pb-5 mx-auto">
       <a href="login.php">
         <button type="button" class="btn btn-dark col-md-6">Connecte toi </button>
       </a>
