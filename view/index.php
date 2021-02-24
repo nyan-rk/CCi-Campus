@@ -26,17 +26,17 @@
         <div class="col-lg">
           <img src="../public/images/index/picto_management.png" alt="">
           <h3 class="pt-5">Gestion</h3>
-          <p>Utilisez les tableaux disponibles sur Cardly afin de vous organiser individuellement ou bien avec votre équipe. </p>
+          <p>Utilise les tableaux disponibles sur Cardly afin de t'organiser individuellement ou bien avec ton équipe. </p>
         </div>
         <div class="col-lg">
           <img src="../public/images/index/picto_customization.png" alt="">
           <h3 class="pt-5">Personnalisation</h3>
-          <p>Personnalisez quelques détails de votre profil afin de rendre votre expérience plus agréable. </p>
+          <p>Personnalise quelques détails de ton profil afin de rendre ton expérience plus agréable. </p>
         </div>
         <div class="col-lg">
           <img src="../public/images/index/picto_optimization.png" alt="">
           <h3 class="pt-5">Optimisation</h3>
-          <p>Gagnez du temps en utilisant les fonctionnalités existantes sur Cardly et optimisez ainsi votre efficacité. </p>
+          <p>Gagne du temps en utilisant les fonctionnalités existantes sur Cardly et optimise ainsi votre efficacité. </p>
         </div>
       </div>
       <br><br><br><br><br>
@@ -77,7 +77,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -96,7 +96,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -115,7 +115,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -134,7 +134,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -153,7 +153,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -172,7 +172,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index/picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -213,7 +213,7 @@
         </h2>
         <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
           <div class="accordion-body">
-            Absolument ! Dans la mesure où tu es le seul invité sur un tableau, tous les dossiers reliés sont privées, et tu es donc le/la seul(e) à pouvoir les consulter et les utiliser.
+            Absolument ! Dans la mesure où tu es le seul invité sur un tableau, tous les dossiers reliés sont privés, et tu es donc le/la seul(e) à pouvoir les consulter et les utiliser.
           </div>
         </div>
       </div>
