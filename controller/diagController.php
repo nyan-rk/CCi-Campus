@@ -16,7 +16,7 @@
         if($idTeam==0){
             // If not creator
             if ($idUser!=$idCrea){
-                if($idVisi==1) return 1 ;
+                if($idVisi==1 or $idVisi==0) return 1 ;
                 else return 0;
             }
             // then creator
@@ -34,7 +34,10 @@
             else return 0;
         }
         // then not connected
-        else return 0;
+        else {
+            if($idVisi==0) return 1;
+            else return 0;
+        }
 
     }
 
