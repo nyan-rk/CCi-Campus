@@ -22,7 +22,7 @@ if (isset($_SESSION['id_user'])) {
             </div>
             <div class="card-body">
                 <div class="tab-content" id="connecPanelContent">
-                    <div class="tab-pane fade" id="connexion" role="tabpanel" aria-labelledby="connexion-tab">
+                    <div class="tab-pane fade show active" id="connexion" role="tabpanel" aria-labelledby="connexion-tab">
                         <form action="controller/login.php" method="post">
                             <div class="container">
                                 <label for="email"><b>Email</b></label>
@@ -36,7 +36,7 @@ if (isset($_SESSION['id_user'])) {
                             </div>
                         </form>
                     </div>
-                    <div class="tab-pane fade show active" id="inscription" role="tabpanel" aria-labelledby="inscription-tab">
+                    <div class="tab-pane fade" id="inscription" role="tabpanel" aria-labelledby="inscription-tab">
                         <form action="controller/register.php" method="POST">
                             <div class="container">
                                 <label for="nickname"><b>Identifiant</b></label>
