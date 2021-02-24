@@ -13,7 +13,7 @@
         if (file_exists("./controller/".$nomPage."Controller.php")) require "./controller/".$nomPage."Controller.php";
         //The page is generated with its $title as a Metatitle
         echo"<!DOCTYPE html><html lang=\"".$_SESSION['lang']."\"><head><meta charset=\"UTF-8\"><meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\"><title>".$title."</title>";
-        if (in_array($nomPage,array("index"))) require "./view/headother.html"; else require "./view/head.html";
+        if (in_array($nomPage,array("index","profile"))) require "./view/headother.html"; else require "./view/head.html";
         if (file_exists("./public/css/".$nomPage.".css")) echo "<link rel='stylesheet' href='./public/css/".$nomPage.".css'>";
 
         // Including the right header
@@ -24,7 +24,7 @@
 
         // Including the right footer
         if(in_array($nomPage,array("login","register"))) require "./view/footeralt.php";
-        else if (in_array($nomPage,array("index"))) require "./view/footerother.php";
+        else if (in_array($nomPage,array("index","profile"))) require "./view/footerother.php";
             else require "./view/footer.php";
     }
 ?>

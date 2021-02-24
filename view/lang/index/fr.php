@@ -1,3 +1,3 @@
 <?php
 
-$title = "Accueil page";
+$title = "Cardly - Accueil";

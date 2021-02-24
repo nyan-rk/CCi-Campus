@@ -1,0 +1,42 @@
+.img {
+    object-fit: cover;
+    width: 30%;
+}
+
+#border-bottom {
+    border-bottom: 2px solid gray;
+}
+
+#gray{
+    background-color: #ebebeb!important;
+}
+
+#pink{
+    background-color: #ffb4b0!important;
+}
+
+#yellow{
+    background-color: #ffe3ae!important;
+}
+
+#purple{
+    background-color: #ccb9df!important;
+}
+
+#blue{
+    background-color: #a8c6fa!important;
+}
+
+#green{
+    background-color: #cbe8ba!important;
+}
+
+label {
+    font-weight: bold;
+}
+
+footer .row>* {
+    width: auto!important;
+    padding-right: 0!important;
+    padding-left: 0!important;
+}
