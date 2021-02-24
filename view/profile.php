@@ -3,6 +3,11 @@
 <?php
   // Recovers data of the logged-in user 
   //$_SESSION['id_user'] = 1;
+  if ((isset($_SESSION['id_user'])!=true))
+    {
+        header('Location: ../index.php');
+        exit();
+    }
   $reponse = $bdd->prepare('SELECT * FROM user WHERE id_user=:USER');
   $reponse->execute(array('USER' => $_SESSION['id_user']));
   $donnees = $reponse->fetch();
@@ -92,3 +97,5 @@
 $reponse->closeCursor();
 ?>
 </body>
+<script src='./public/js/jquery-3.5.1.js'></script>
+<script src='./public/js/fiveohfix.js'></script>

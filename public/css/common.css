@@ -31,11 +31,18 @@ a:hover {
 }
 
 /*header*/
+.navbar{
+  top:0;
+  align-items:center;
+}
+.navbar-toggler{
+  margin: 0 auto;
+}
 
 header {
   display: flex;
+  height:100px;
   justify-content: space-between;
-  align-items: center;
 }
 
 /*Footer*/
