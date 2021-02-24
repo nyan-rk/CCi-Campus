@@ -216,7 +216,7 @@
         <div id='diagcont'>
             <div class='row' id='diag'>";
                 displayDiag($idDiag,$perm,$db); 
-                if (isset($_SESSION['id_user'])) addView($idDiag,$_SESSION['id_user'], $db);
+                if (isset($_SESSION['id_user'])) addView($idDiag,$_SESSION['id_user'],0, $db);
                 echo "</div>
         </div>";
     }

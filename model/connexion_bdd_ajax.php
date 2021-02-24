@@ -11,6 +11,7 @@ try {
 }
 require 'diag.php';
 require 'guest_access.php';
+require 'history.php';
 require 'stack.php';
 require 'task.php';
 require 'team_affiliation.php';
