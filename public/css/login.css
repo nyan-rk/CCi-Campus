@@ -7,6 +7,7 @@ form {
   border: 3px solid #f1f1f1;
 }
 
+input[id="nickname"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -22,6 +23,7 @@ button {
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
+  border-radius: 1em;
   border: none;
   cursor: pointer;
   width: 100%;
@@ -31,15 +33,6 @@ button:hover {
   opacity: 0.8;
 }
 
-.container {
-  padding: 16px;
-}
-
-span.password {
-  float: right;
-  padding-top: 16px;
-}
-
 .card-login {
-  background-color: ;
+  padding: 16px;
 }

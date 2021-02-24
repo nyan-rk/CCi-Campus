@@ -1,8 +1,4 @@
 <?php
-
-
-/*$_SESSION['id_user'] = 1;*/
-
 //check if user exist
 if (isset($_SESSION['id_user'])) {
     header('Location : ../dashboard.php');

@@ -26,7 +26,7 @@ $result = $sql->fetch();
 if ($result['mail_exist'] == 1 or $result['nickname_exist'] == 1) {
 
     //redirect to register
-    header('Location: http://cardly/register.php'); //header("location:" .  $_SERVER['HTTP_REFERER']);
+    header('Location: ../register.php'); //header("location:" .  $_SERVER['HTTP_REFERER']);
 
     exit();
 } else {
