@@ -1,5 +1,6 @@
 <?php
 
+    // Building the form
     function formBuilder()
     {
         echo "<div class='container'>

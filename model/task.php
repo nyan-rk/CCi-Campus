@@ -1,5 +1,6 @@
 <?php 
 
+    // Retrieve a certain task from a certain column
     function taskDisplay($idCol,$db)
     {
         $gump= $db->prepare('SELECT * FROM task WHERE stack_linked =:col ORDER BY order_task');
@@ -7,6 +8,7 @@
         return $gump;
     }
 
+    // Insert a new task in a certain column
     function insertNewTask($idCol,$idPos,$text,$db)
     {
         $req=$db->prepare('INSERT INTO task (name_task, order_task,stack_linked) VALUES (:NAME, :ORDER, :COL)');
@@ -17,6 +19,7 @@
 		));
     }
 
+    // Delete a certain task
     function deleteTask($idPos,$idCol,$db)
     {
         $req=$db->prepare('DELETE from task WHERE stack_linked =:COL and order_task=:ORDER');
@@ -26,6 +29,7 @@
 		));
     }
 
+    // Update a task's position
     function updateTaskPosition($idStack, $oldOrder, $newOrder,$db)
     {
         $req=$db->prepare('UPDATE task SET order_task=:NEWORD WHERE order_task=:OLDORD AND stack_linked=:STACK');
@@ -36,6 +40,7 @@
         ));
     }
 
+    // Update a task's position and stack
     function updateTaskPositionAndStack($idStack,$newStack, $oldOrder, $newOrder,$db)
     {
         $req=$db->prepare('UPDATE task SET order_task=:NEWORD, stack_linked=:NEWSTACK WHERE order_task=:OLDORD AND stack_linked=:OLDSTACK');
@@ -47,6 +52,7 @@
         ));
     }
 
+    // Reorder the tasks from a certain index with a certain increment. +1 or -1
     function reorderTasksFromIndex($idStack, $idOrder, $incr, $db)
     {
         $req=$db->prepare('UPDATE task SET order_task=order_task+:INCR where stack_linked=:STACK and order_task>=:ORDER');
@@ -57,6 +63,7 @@
         ));
     }
 
+    // reorger tasks between ColMin and ColMax
     function reorderTasksFromArray($idStack, $idColMin, $idColMax, $incr, $db)
     {
         $req=$db->prepare('UPDATE task SET order_task=order_task+:INCR where stack_linked=:STACK and order_task BETWEEN :COLMIN and :COLMAX');

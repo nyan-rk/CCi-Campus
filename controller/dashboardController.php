@@ -118,6 +118,7 @@
         }
     }
 
+    // Function to build the team modals that will be dynamically modified by the JS
     function teamModals($db)
     {
         echo 

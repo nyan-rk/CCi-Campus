@@ -250,6 +250,7 @@
         else PageBuilder ($idDiag,$userz,$res,$perm,$db);
     }
 
+    // Block builder that will contain translation strings and the ID of the latest modification that will be checked by the JS file.
     function secretBlock($idDiag,$db)
     {
         $modif=getLatestModif($idDiag,$db);

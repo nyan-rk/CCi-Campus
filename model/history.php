@@ -1,5 +1,6 @@
 <?php
 
+    // Add a modification id
     function addView($idDiag, $idUser,$mode, $db)
     {
         $req=$db->prepare('INSERT INTO history (id_diag, id_user,modif_type) VALUES (:DIAG,:USER,:MODIF);');
@@ -10,6 +11,7 @@
 		));
     }
 
+    // Get the latest modification id of a diag
     function getLatestModif($idDiag,$db)
     {
         $req=$db->prepare('SELECT * from history where id_diag=:DIAG AND modif_type!=0 ORDER BY date_viewed DESC');
