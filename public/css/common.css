@@ -1,43 +1,53 @@
-:root{
-    --sheet-color:#D7D4CD;
-    --cardlyblue1:#A8C6FA;
-    --cardlyblue1sub:#E4EDFE;
-    --cardlypurple:#C9BAE7;
-    --cardlypurplesub:#E8E3FF;
-    --cardlypink:#FFB4B0;
-    --cardlypinksub:#FFECE9;
-    --cardlypinkplus:#FFA382;
-    --cardlyyellow:#FFE3AE;
-    --cardlyyellowsub:#FDEED3;
-    --cardlygreen:#CBE8BA;
-    --cardlygreensub:#E2F4E2;
+:root {
+  --sheet-color: #d7d4cd;
+  --cardlyblue1: #a8c6fa;
+  --cardlyblue1sub: #e4edfe;
+  --cardlypurple: #c9bae7;
+  --cardlypurplesub: #e8e3ff;
+  --cardlypink: #ffb4b0;
+  --cardlypinksub: #ffece9;
+  --cardlypinkplus: #ffa382;
+  --cardlyyellow: #ffe3ae;
+  --cardlyyellowsub: #fdeed3;
+  --cardlygreen: #cbe8ba;
+  --cardlygreensub: #e2f4e2;
 }
 
-body{
-    overflow-X:hidden;
-	font-family: 'Open Sans', sans-serif!important;
+body {
+  overflow-x: hidden;
+  font-family: "Open Sans", sans-serif !important;
 }
 
-#logo_cardly, #logo_footer{
-	--st0:#6e6e6d;
-	--st1:#8dc2ce;
+#logo_cardly,
+#logo_footer {
+  --st0: #6e6e6d;
+  --st1: #8dc2ce;
 }
 
-a, a:hover{
-    color:black;
-    text-decoration:none;
+a,
+a:hover {
+  color: black;
+  text-decoration: none;
+}
+
+/*header*/
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 /*Footer*/
-#logo_footer{
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
+#logo_footer {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
-footer{
-    background-color:#ECECEC;
-    padding-bottom:50px;
-    padding-top:50px;
+footer {
+  background-color: #ececec;
+  padding-bottom: 50px;
+  padding-top: 50px;
 }

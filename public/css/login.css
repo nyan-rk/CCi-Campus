@@ -2,11 +2,32 @@ body {
   font-family: Arial, Helvetica, sans-serif;
   width: 50%;
   margin: auto;
-}
-form {
-  border: 3px solid #f1f1f1;
+  background: no-repeat url("../images/_background-login_register.png");
+  background-size: 70%;
 }
 
+#back_ground {
+  background: white;
+}
+
+.card-header {
+  background: white !important;
+}
+
+#inscription-tab.active {
+  border-bottom: 2px var(--cardlyblue1) solid !important;
+}
+
+#connexion-tab.active {
+  border-bottom: 2px var(--cardlypink) solid !important;
+}
+
+ul {
+  display: flex;
+  justify-content: space-around;
+}
+
+input[id="nickname"],
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -18,24 +39,36 @@ input[type="password"] {
 }
 
 button {
-  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
+  border-radius: 1em;
   border: none;
   cursor: pointer;
   width: 100%;
 }
 
-button:hover {
-  opacity: 0.8;
-}
-
-.container {
+.card-login {
   padding: 16px;
 }
 
-span.password {
-  float: right;
-  padding-top: 16px;
+#inscription_color {
+  background-color: var(--cardlyblue1);
 }
+
+#connexion_color {
+  background-color: var(--cardlypink);
+}
+
+#inscription label {
+  color: var(--cardlyblue1);
+}
+
+#connexion label {
+  color: var(--cardlypink);
+}
+
+.container {
+  background-color: white !important;
+}
+

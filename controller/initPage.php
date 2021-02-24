@@ -1,4 +1,5 @@
 <?php
+
     // Building the page according to the page name
     function initPage()
     {
@@ -16,15 +17,41 @@
         if (in_array($nomPage,array("index","profile"))) require "./view/headother.html"; else require "./view/head.html";
         if (file_exists("./public/css/".$nomPage.".css")) echo "<link rel='stylesheet' href='./public/css/".$nomPage.".css'>";
 
-        // Including the right header
-        if(in_array($nomPage,array("login","register"))) echo "</head>";
-        else require "./view/header.php";
 
-        require "./view/".$nomPage.".php";
 
+    // Including the right header
+    if (in_array($nomPage, array("login", "register"))) echo "</head>";
+    else require "./view/header.php";
+
+
+    require "./view/" . $nomPage . ".php";
         // Including the right footer
         if(in_array($nomPage,array("login","register"))) require "./view/footeralt.php";
         else if (in_array($nomPage,array("index","profile"))) require "./view/footerother.php";
             else require "./view/footer.php";
     }
+
+function headerNav()
+{
+
+    //if session is active
+    if (!isset($_SESSION['id_user'])) {
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"../index.php\">" . HEAD['home'] . "</a></li>";
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"../contact.php\">" . HEAD['contact'] . "</a></li>";
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"../login.php\"> " . HEAD['login'] . "</a></li>";
+    } else {
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"../dashboard.php\"> " . HEAD['dashboard'] . "</a></li>";
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"../profil.php\"> " . HEAD['profile'] . " </a></li>";
+
+        echo "<li class=\"nav_item\">" . "<br>"
+            . "<a class=\"nav-link\" href=\"./controller/disconnect.php\"> Se déconnecter </a></li>";
+    };
+}
+
 ?>
+
