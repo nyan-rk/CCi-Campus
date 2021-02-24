@@ -9,7 +9,7 @@ try {
     die('Erreur: ' . $a->getMessage());
 
 }
-require 'diag.php';
+//require 'diag.php';
 require 'guest_access.php';
 require 'stack.php';
 require 'task.php';

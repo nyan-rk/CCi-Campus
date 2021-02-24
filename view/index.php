@@ -12,7 +12,7 @@
           </div>
         </div>
         <div class="col-sm py-5 my-auto">
-          <img src="img/imageheader.svg" alt="Header image">
+          <img src="../public/images/index/imageheader.svg" alt="Header image">
         </div>
       </div>
     </div>
@@ -24,17 +24,17 @@
     <div class=" text-center container pt-5 pb-5">
       <div id="picto" class="row">
         <div class="col-lg">
-          <img src="img/picto_management.png" alt="">
+          <img src="../public/images/index/picto_management.png" alt="">
           <h3 class="pt-5">Gestion</h3>
           <p>Utilisez les tableaux disponibles sur Cardly afin de vous organiser individuellement ou bien avec votre équipe. </p>
         </div>
         <div class="col-lg">
-          <img src="img/picto_customization.png" alt="">
+          <img src="../public/images/index/picto_customization.png" alt="">
           <h3 class="pt-5">Personnalisation</h3>
           <p>Personnalisez quelques détails de votre profil afin de rendre votre expérience plus agréable. </p>
         </div>
         <div class="col-lg">
-          <img src="img/picto_optimization.png" alt="">
+          <img src="../public/images/index/picto_optimization.png" alt="">
           <h3 class="pt-5">Optimisation</h3>
           <p>Gagnez du temps en utilisant les fonctionnalités existantes sur Cardly et optimisez ainsi votre efficacité. </p>
         </div>
@@ -50,17 +50,17 @@
     <div class=" text-center container py-5">
       <div id="avatar" class="row">
         <div class="col-sm">
-          <img src="img/avatar_darius.svg" alt="">
+          <img src="../public/images/index//avatar_darius.svg" alt="">
           <h3 class="pt-5">Darius</h3>
           <p>L'homme de la situation. </p>
         </div>
         <div class="col-sm">
-          <img src="img/avatar_cecile.svg" alt="">
+          <img src="../public/images/index//avatar_cecile.svg" alt="">
           <h3 class="pt-5">Cécile</h3>
           <p>La jeune brebis.</p>
         </div>
         <div class="col-sm">
-          <img src="img/avatar_andy.svg" alt="">
+          <img src="../public/images/index//avatar_andy.svg" alt="">
           <h3 class="pt-5">Andy</h3>
           <p>Le chef de projet.</p>
           </div>
@@ -77,7 +77,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -96,7 +96,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -115,7 +115,7 @@
           <div class="container my-4">
             <div class="row">
               <div class="col-sm-4">
-                <img class="card-img-top" src="img/picto_user_comments.svg" alt="Card image cap">
+                <img class="card-img-top" src="../public/images/index//picto_user_comments.svg" alt="Card image cap">
               </div>
               <div class="col-sm-8">
                 <div class="card-body">
@@ -245,4 +245,3 @@
     </div>
 
 </body>
-<script src="./public/js/jquery-3.5.1.js"></script>
