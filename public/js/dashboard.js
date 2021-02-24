@@ -67,7 +67,7 @@ $(document).ready(function(){
         $('#removeTeamModal').val($(this).parent().next().attr('id').substring(5));
       });
 
-    // Remove diags
+    // Remove team
       $("#removeTeamButton").on("click",function(){
         team=$('#removeTeamModal').val();
         keep=$('input[name=removeChoice]:checked').val();
@@ -86,6 +86,8 @@ $(document).ready(function(){
                 }
                 $('#teamList option[value="'+team+'"]').remove();
                 gumRecolor();
+                if($('#teamTables .row').length==0) 
+                    $('#teamTables').append("<p id='noTeam' style='margin-top:20px'>"+$("#dico").attr("text2")+"</p>");
                 console.log('Team removed');
                 },
                 error: function(data){
@@ -113,6 +115,8 @@ $(document).ready(function(){
                 $('#team-'+team).remove();
                 $('#teamList option[value="'+team+'"]').remove();
                 gumRecolor();
+                if($('#teamTables .row').length==0) 
+                    $('#teamTables').append("<p id='noTeam' style='margin-top:20px'>"+$("#dico").attr("text2")+"</p>");
                 console.log('Exited from team');
                 },
                 error: function(data){
@@ -128,12 +132,13 @@ $(document).ready(function(){
         teamSelect='#team-'+teamId;
         console.log(teamSelect);
         projectName=$('#projectname').val();
-        console.log($(teamSelect).find('.gum-cardly').length);
-        if(projectName.length>0){
+        projectDesc=$('#projectdesc').val();
+        if(projectName.length>0 && projectDesc.length>0){
+            console.log(realuser+' '+$('#projectname').val()+' '+teamId+' '+$('#projectVisib').val()+' '+$('#projectdesc'));
             $.ajax({
                 url: './controller/dashboardInteract.php',
                 type: 'post',
-                data: {mode: 1, user:realuser, name:$('#projectname').val(), desc:$('#projectdesc').val(),visi:$('#projectVisib').val(), team:teamId},
+                data: {mode: 1, user:realuser, name:projectName, desc:projectDesc,visi:$('#projectVisib').val(), team:teamId},
                 success: function(data){
                     console.log("Tableau créé : "+data)
                     if($(teamSelect).find('.gum-cardly').length==0){
@@ -160,9 +165,11 @@ $(document).ready(function(){
                 type: 'post',
                 data: {mode: 2, user:realuser, name:teamName},
                 success: function(data){
-                    $('#teamTables').append("<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px'>"+$("#dico").attr("text3")+"</div>");
+                    $('#teamTables').append("<div class='row teamheader' style='align-items: center;'><div class='cardly-teamava'></div><h3>"+$('#newteamname').val()+"</h3><i class='fas fa-plus'></i><i class='fas fa-times'></i><i class='fas fa-sign-out-alt'></i></div><div class='row' id='team-"+data+"' style='margin-top:20px;margin-bottom:20px;'>"+$("#dico").attr("text3")+"</div>");
                     $('#teamList').append("<option value='"+data+"'>"+$('#newteamname').val()+"</option>");
                     $('#newteamname').val('');
+                    $('#noTeam').remove();
+                    console.log($('#teamTables .row').length);
                     console.log('Team created');
                 },
                 error: function(data){

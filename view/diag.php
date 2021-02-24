@@ -5,7 +5,9 @@
         ?>
     </div>
 </body>
-<input type="hidden" id="dico" name="dico" text1="<?php echo DIAG['newtask'] ?>" text2="<?php echo DIAG['newstack']?>">
+<?php 
+    secretBlock($_GET['d'],$bdd);
+?>
 <script>var user=<?php echo $user;?>;
 var team=<?php echo $resultat['team_affili'];?></script>
 <script src='./public/js/jquery-3.5.1.js'></script>

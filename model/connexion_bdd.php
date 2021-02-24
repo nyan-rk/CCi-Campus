@@ -11,9 +11,9 @@ try {
 
 require './model/diag.php';
 require './model/guest_access.php';
+require './model/history.php';
 require './model/stack.php';
 require './model/task.php';
 require './model/team_affiliation.php';
 require './model/teams.php';
 require './model/user.php';
-require './model/view_history.php';

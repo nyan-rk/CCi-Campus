@@ -16,7 +16,7 @@
         if($idTeam==0){
             // If not creator
             if ($idUser!=$idCrea){
-                if($idVisi==1) return 1 ;
+                if($idVisi==1 or $idVisi==0) return 1 ;
                 else return 0;
             }
             // then creator
@@ -34,7 +34,10 @@
             else return 0;
         }
         // then not connected
-        else return 0;
+        else {
+            if($idVisi==0) return 1;
+            else return 0;
+        }
 
     }
 
@@ -216,7 +219,7 @@
         <div id='diagcont'>
             <div class='row' id='diag'>";
                 displayDiag($idDiag,$perm,$db); 
-                if (isset($_SESSION['id_user'])) addView($idDiag,$_SESSION['id_user'], $db);
+                if (isset($_SESSION['id_user'])) addView($idDiag,$_SESSION['id_user'],0, $db);
                 echo "</div>
         </div>";
     }
@@ -245,5 +248,16 @@
             echo "<div id='notauthorized'>".DIAG['secuconnected']."</div>";
         }
         else PageBuilder ($idDiag,$userz,$res,$perm,$db);
+    }
+
+    function secretBlock($idDiag,$db)
+    {
+        $modif=getLatestModif($idDiag,$db);
+        if($modif->rowCount()==0) $latestModif=0;
+        else{
+            $modified=$modif->fetch();
+            $latestModif=$modified['id_view'];
+        }
+        echo "<input type='hidden' id='dico' name='dico' value='".$latestModif."' text1='".DIAG['newtask']."' text2='".DIAG['newstack']."'>";
     }
 ?>

@@ -32,6 +32,17 @@
         return $req;
     }
 
+    // Check if a member is in a team or is the creator. Used for AJAX safeties.
+    function isInTeamOrCreator($idUser,$idDiag,$db)
+    {
+        $req=$db->prepare('SELECT EXISTS (SELECT * from diag where id_diag=:DIAG and id_creator=:USER) As is_creator, EXISTS (select * from diag as d inner join team_affiliation as t on t.id_team=d.team_affili where d.id_diag=:DIAG and t.id_user=:USER) as is_in_team');
+        $req->execute(array(
+            'DIAG' => $idDiag,
+            'USER' => $idUser
+        ));
+        return $req;
+    }
+
     // Retrieve all team members
     function teamMembers($idTeam,$db)
     {
