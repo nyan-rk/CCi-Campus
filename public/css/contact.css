@@ -19,6 +19,11 @@ input, textarea{
     margin-bottom: .5rem;
 }
 
+.errormessage{
+    display:none;
+    color:red;
+}
+
 button{
     border: none;
     border-radius:10px;
