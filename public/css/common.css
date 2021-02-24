@@ -31,11 +31,22 @@ a:hover {
 }
 
 /*header*/
+.navbar{
+  top:0;
+  align-items:center;
+}
+.navbar-toggler{
+  margin: 0 auto;
+}
+.nav-link{
+  color:black!important;
+}
+
 
 header {
   display: flex;
+  height:100px;
   justify-content: space-between;
-  align-items: center;
 }
 
 /*Footer*/
@@ -52,6 +63,17 @@ footer {
   padding-top: 50px;
 }
 
+
 ul {
   background: white;
+}
+
+@media (min-width: 992px){
+  .nav_item ~ .nav_item{
+    border-left:2px black solid;
+  }
+  .nav_item{
+    width:140px;
+    text-align: center;
+  }
 }

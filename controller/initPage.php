@@ -37,19 +37,13 @@ function headerNav()
 
     //if session is active
     if (!isset($_SESSION['id_user'])) {
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../index.php\">" . HEAD['home'] . "</a></li>";
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../contact.php\">" . HEAD['contact'] . "</a></li>";
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../login.php\"> " . HEAD['login'] . "</a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"../index.php\">" . HEAD['home'] . "</a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"../contact.php\">" . HEAD['contact'] . "</a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"../login.php\"> " . HEAD['login'] . "</a></li>";
     } else {
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../dashboard.php\"> " . HEAD['dashboard'] . "</a></li>";
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../profile.php\"> " . HEAD['profile'] . " </a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"../dashboard.php\"> " . HEAD['dashboard'] . "</a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"../profile.php\"> " . HEAD['profile'] . " </a></li>";
 
-        echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"./controller/disconnect.php\"> Se déconnecter </a></li>";
+        echo "<li class=\"nav_item\"><a class=\"nav-link\" href=\"./controller/disconnect.php\"> Se déconnecter </a></li>";
     };
 }

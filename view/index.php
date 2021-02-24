@@ -1,6 +1,10 @@
+<?php 
+    if ((isset($_SESSION['id_user'])==true))
+    {
+        header('Location: ../dashboard.php');
+        exit();
+    }?>
 <body>
-
-
     <!--------------- Welcome part --------------->
     <div class="container">
       <div class="row" style="height: 800px">
@@ -245,3 +249,5 @@
     </div>
 
 </body>
+<script src='./public/js/jquery-3.5.1.js'></script>
+<script src='./public/js/fiveohfix.js'></script>
