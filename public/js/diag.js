@@ -305,12 +305,12 @@ $(document).ready(function(){
           console.log("Stack "+$stack+" removed");
           stackRecolor();
         }
-        screenshot();
       },
       error: function(data){
         console.log('Nothing changed');
       }
     });
+    screenshot();
   });
 
     $(".row").on("keypress",".newTask",function(e){

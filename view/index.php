@@ -1,12 +1,10 @@
-<body>
-
-    <?php 
+<?php 
     if ((isset($_SESSION['id_user'])==true))
     {
         header('Location: ../dashboard.php');
         exit();
     }?>
-
+<body>
     <!--------------- Welcome part --------------->
     <div class="container">
       <div class="row" style="height: 800px">
