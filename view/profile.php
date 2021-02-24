@@ -2,7 +2,7 @@
 
 <?php
   // Recovers data of the logged-in user 
-  $_SESSION['id_user'] = 1;
+  //$_SESSION['id_user'] = 1;
   $reponse = $bdd->prepare('SELECT * FROM user WHERE id_user=:USER');
   $reponse->execute(array('USER' => $_SESSION['id_user']));
   $donnees = $reponse->fetch();

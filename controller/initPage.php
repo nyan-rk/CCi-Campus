@@ -46,7 +46,7 @@ function headerNav()
         echo "<li class=\"nav_item\">" . "<br>"
             . "<a class=\"nav-link\" href=\"../dashboard.php\"> " . HEAD['dashboard'] . "</a></li>";
         echo "<li class=\"nav_item\">" . "<br>"
-            . "<a class=\"nav-link\" href=\"../profil.php\"> " . HEAD['profile'] . " </a></li>";
+            . "<a class=\"nav-link\" href=\"../profile.php\"> " . HEAD['profile'] . " </a></li>";
 
         echo "<li class=\"nav_item\">" . "<br>"
             . "<a class=\"nav-link\" href=\"./controller/disconnect.php\"> Se déconnecter </a></li>";
