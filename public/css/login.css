@@ -71,3 +71,7 @@ button {
 .container {
   background-color: white !important;
 }
+
+button:hover {
+  opacity: 0.8;
+}
