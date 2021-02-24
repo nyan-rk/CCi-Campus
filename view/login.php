@@ -12,10 +12,10 @@ if (isset($_SESSION['id_user'])) {
         <div class="card-header">
             <ul class="nav nav-tabs card-header-tabs pull-right" id="connecPanel" role="tablist">
                 <li class="nav-item">
-                    <a class="nav-link" id="connexion-tab" data-toggle="tab" href="#connexion" role="tab" aria-controls="connexion" aria-selected="true">Connexion</a>
+                    <a class="nav-link active" id="connexion-tab" data-toggle="tab" href="#connexion" role="tab" aria-controls="connexion" aria-selected="true">Connexion</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" id="inscription-tab" data-toggle="tab" href="#inscription" role="tab" aria-controls="inscription" aria-selected="false">Inscription</a>
+                    <a class="nav-link" id="inscription-tab" data-toggle="tab" href="#inscription" role="tab" aria-controls="inscription" aria-selected="false">Inscription</a>
                 </li>
             </ul>
         </div>
