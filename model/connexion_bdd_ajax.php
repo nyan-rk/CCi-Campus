@@ -17,4 +17,3 @@ require 'task.php';
 require 'team_affiliation.php';
 require 'teams.php';
 require 'user.php';
-require 'view_history.php';

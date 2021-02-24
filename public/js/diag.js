@@ -60,6 +60,7 @@ $(document).ready(function(){
           type: 'post',
           data: {mode: 7,user:realuser, oldpos:oldpos, oldcol:oldcol, newpos:newpos, newcol:newcol, diag:idDiag},
           success: function(data){
+            $("#dico").attr("value",data);
             console.log('Task moved');
           },
           error: function(data){
@@ -93,6 +94,7 @@ $(document).ready(function(){
           type: 'post',
           data: {mode: 8, user:realuser,oldpos:oldposi, newpos:newposi, diag:idDiag},
           success: function(data){
+            $("#dico").attr("value",data);
             console.log('Stack moved');
           },
           error: function(data){
@@ -125,6 +127,7 @@ $(document).ready(function(){
         data: {mode: 1, title:this.value,user:realuser, diag:idDiag},
         success: function(data){
           $(document).prop('title', 'Cardly - '+$('#diagTitle').text());
+          $("#dico").attr("value",data);
           console.log('Title changed');
         },
         error: function(data){
@@ -149,6 +152,7 @@ $(document).ready(function(){
         type: 'post',
         data: {mode: 2, text:this.value,user:realuser, diag:idDiag},
         success: function(data){
+          $("#dico").attr("value",data);
           console.log('Desc changed');
         },
         error: function(data){
@@ -263,7 +267,6 @@ $(document).ready(function(){
         console.log('Access denied');
       }
     });
-    //console.log('Ta mere');
   });
 
 // Menu - Change visib : No
@@ -298,6 +301,7 @@ $(document).ready(function(){
         if($mode==5)
         console.log("Task "+$task+" removed from column "+$stack);
         else {
+          $("#dico").attr("value",data);
           console.log("Stack "+$stack+" removed");
           stackRecolor();
         }
@@ -333,6 +337,7 @@ $(document).ready(function(){
           type: 'post',
           data: {mode: 3, user:realuser, text:this.value, diag:idDiag, col:col, pos:$(newTask).index()+1},
           success: function(data){
+            $("#dico").attr("value",data);
             console.log('Task added '+($(newTask).index()+1));
           },
           error: function(data){
@@ -368,6 +373,7 @@ $(document).ready(function(){
           type: 'post',
           data: {mode: 4,user:realuser, text:this.value, diag:idDiag, col:currentCol},
           success: function(data){
+            $("#dico").attr("value",data);
             console.log('Stack added');
           },
           error: function(data){
@@ -379,5 +385,20 @@ $(document).ready(function(){
 	    	screenshot();
       }
     });
+
+    window.setInterval(synchro, 2000);
+    function synchro() {
+      $.ajax({
+        url: './controller/synchronizedWatches.php',
+        type: 'post',
+        data: {diag:idDiag},
+        success: function(data){
+          if($("#dico").attr("value")!=data)
+          location.reload();
+        },
+        error: function(data){
+          console.log('Qué ?');
+        }
+      }); }
 
   })

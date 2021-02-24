@@ -249,4 +249,15 @@
         }
         else PageBuilder ($idDiag,$userz,$res,$perm,$db);
     }
+
+    function secretBlock($idDiag,$db)
+    {
+        $modif=getLatestModif($idDiag,$db);
+        if($modif->rowCount()==0) $latestModif=0;
+        else{
+            $modified=$modif->fetch();
+            $latestModif=$modified['id_view'];
+        }
+        echo "<input type='hidden' id='dico' name='dico' value='".$latestModif."' text1='".DIAG['newtask']."' text2='".DIAG['newstack']."'>";
+    }
 ?>

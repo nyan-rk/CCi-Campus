@@ -20,12 +20,16 @@
         // 1 : Title update
         if ($mode==1 and $_POST['title']!=null){
             updateDiagName($_POST['diag'],htmlspecialchars($_POST['title']),$bdd);
+            addView($_POST['diag'],$_POST['user'],1, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
         // 2 : Desc update
         if ($mode==2 and $_POST['text']!=null){
             updateDiagDesc($_POST['diag'],htmlspecialchars($_POST['text']),$bdd);
+            addView($_POST['diag'],$_POST['user'],2, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
@@ -34,12 +38,16 @@
             $col=retrieveColFromOrder($_POST['diag'],$_POST['col'],$bdd);
             if ($col!=null)
             insertNewTask($col,$_POST['pos'],htmlspecialchars($_POST['text']),$bdd);
+            addView($_POST['diag'],$_POST['user'],3, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
         // 4 : Stack add
         if ($mode==4 and $_POST['col']!=null and $_POST['diag']!=null){
             insertNewStack($_POST['diag'],htmlspecialchars($_POST['text']),$_POST['col'],$bdd);
+            addView($_POST['diag'],$_POST['user'],4, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
@@ -49,12 +57,16 @@
             $colo=retrieveColFromOrder($_POST['diag'], $_POST['stack'],$bdd);
             //Removing the task by indicating which col to search
             deleteTask($_POST['task'],$colo,$bdd);
+            addView($_POST['diag'],$_POST['user'],5, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
         // 6 : Stack remove
         if ($mode==6 and $_POST['stack']!=null and $_POST['diag']!=null){
             removeStack($_POST['diag'],$_POST['stack'],$bdd);
             reorderStacksFromIndex($_POST['diag'],$_POST['stack'],$bdd);
+            addView($_POST['diag'],$_POST['user'],6, $bdd);
+            echo $bdd->lastInsertId();
         }
 
         // 7 : Task reorder
@@ -74,6 +86,8 @@
                 updateTaskPositionAndStack($originCol,$destCol,$_POST['oldpos'],$_POST['newpos'],$bdd);
                 reorderTasksFromIndex($originCol,$_POST['oldpos'],-1, $bdd);
             }
+            addView($_POST['diag'],$_POST['user'],7, $bdd);
+            echo $bdd->lastInsertId();
         }
 
         // 8 : Stack reorder
@@ -83,6 +97,8 @@
                 reorderStacksFromArray($_POST['diag'], $_POST['oldpos'], $_POST['newpos'], -1, $bdd);
             else reorderStacksFromArray($_POST['diag'], $_POST['newpos'], $_POST['oldpos'], +1, $bdd);
             updateStackPosition($_POST['diag'],0, $_POST['newpos'],$bdd);
+            addView($_POST['diag'],$_POST['user'],8, $bdd);
+            echo $bdd->lastInsertId();
         }
 
     }

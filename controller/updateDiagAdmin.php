@@ -19,24 +19,32 @@
         // 9 : Delete diag
         if ($mode==9 and $_POST['diag']!=null){
             deleteDiagFromId($_POST['diag'],$bdd);
+            addView($_POST['diag'],$_POST['user'],9, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
         // 10 : Change diag team
         if ($mode==10 and $_POST['diag']!=null AND $_POST['team']!=NULL){
             updateDiagTeam($_POST['diag'],$_POST['team'],$bdd);
+            addView($_POST['diag'],$_POST['user'],10, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
         // 11 : Change diag creator/owner
         if ($mode==11 and $_POST['diag']!=null AND $_POST['newuser']!=NULL){
             updateDiagCreator($_POST['diag'],$_POST['newuser'],$bdd);
+            addView($_POST['diag'],$_POST['user'],11, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
 
         // 12 : Change diag visibility
         if ($mode==12 and $_POST['diag']!=null AND $_POST['visi']!=NULL){
             updateDiagVisib($_POST['diag'], $_POST['visi'],$bdd);
+            addView($_POST['diag'],$_POST['user'],12, $bdd);
+            echo $bdd->lastInsertId();
             exit();
         }
     }
