@@ -63,6 +63,11 @@ footer {
   padding-top: 50px;
 }
 
+
+ul {
+  background: white;
+}
+
 @media (min-width: 992px){
   .nav_item ~ .nav_item{
     border-left:2px black solid;
