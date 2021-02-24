@@ -19,7 +19,6 @@ input[type="password"] {
 }
 
 button {
-  background-color: #4caf50;
   color: white;
   padding: 14px 20px;
   margin: 8px 0;
@@ -35,4 +34,20 @@ button:hover {
 
 .card-login {
   padding: 16px;
+}
+
+#inscription_color {
+  background-color: var(--cardlyblue1);
+}
+
+#connexion_color {
+  background-color: var(--cardlypink);
+}
+
+#inscription label {
+  color: var(--cardlyblue1);
+}
+
+#connexion label {
+  color: var(--cardlypink);
 }
